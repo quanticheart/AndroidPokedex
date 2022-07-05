@@ -8,4 +8,9 @@
     <string name="label_ps">PS</string>
     <string name="label_name">Nome:</string>
     <string name="form_title">P O K É D A D O S</string>
+    <string name="pokedex">POKEDEX</string>
+    <string name="sair">SAIR</string>
+    <string name="logo_description">pokemon tcg game</string>
+    <string name="label_loading">Carregando os dados</string>
+    <string name="label_retry">Tentar novamente</string>
 </resources>

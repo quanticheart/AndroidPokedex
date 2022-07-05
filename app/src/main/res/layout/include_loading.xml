@@ -8,8 +8,7 @@
     android:clickable="true"
     android:focusable="true"
     android:gravity="center"
-    android:orientation="vertical"
-    android:visibility="gone">
+    android:orientation="vertical">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/ivLoading"
@@ -24,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Carregando os dados"
+        android:text="@string/label_loading"
         android:textColor="#000000" />
 
 </LinearLayout>
