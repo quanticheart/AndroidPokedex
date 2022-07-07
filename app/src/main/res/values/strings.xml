@@ -1,16 +1,9 @@
 <resources>
-    <string name="app_name">Pokermao</string>
-    <string name="include_permission_button">Habilitar permissão</string>
-    <string name="label_save">Salvar</string>
-    <string name="label_velocity">Velocidade</string>
-    <string name="label_defense">Defesa</string>
-    <string name="label_attack">Ataque:</string>
-    <string name="label_ps">PS</string>
-    <string name="label_name">Nome:</string>
-    <string name="form_title">P O K É D A D O S</string>
+    <string name="app_name">Poké TCG</string>
     <string name="pokedex">POKEDEX</string>
     <string name="sair">SAIR</string>
     <string name="logo_description">pokemon tcg game</string>
     <string name="label_loading">Carregando os dados</string>
     <string name="label_retry">Tentar novamente</string>
+    <string name="msg_error_details">Dados inválidos</string>
 </resources>

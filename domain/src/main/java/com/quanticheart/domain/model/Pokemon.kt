@@ -1,12 +1,9 @@
 package com.quanticheart.domain.model
 
+import java.io.Serializable
+
 data class Pokemon(
-    val number: String,
+    val id: String,
     val name: String,
-    val imageURL: String,
-    var ps: Int,
-    var attack: Int,
-    var defense: Int,
-    var velocity: Int,
-    var description: String
-)
+    val imageURL: String
+) : Serializable

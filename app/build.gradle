@@ -51,15 +51,12 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
 
-    //Biblioteca AAC
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0"
 
-    //Injecao de dependencia KOIN
     implementation "io.insert-koin:koin-android:3.2.0"
     implementation "io.insert-koin:koin-android:3.2.0"
 
-    // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3"
 

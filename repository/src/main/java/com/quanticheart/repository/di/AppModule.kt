@@ -9,13 +9,26 @@ import com.quanticheart.repository.retrofit.RetrofitClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
-val networkModules = module {
-    single { RetrofitClient(application = androidContext()).newInstance() }
-    single { HttpClient(get()) }
-    factory { get<HttpClient>().create(PokemonService::class.java) }
+private val othersModules = module {
     single { PicassoClient(application = androidContext()).newInstance() }
 }
 
-val dataModules = module {
+private val connectionModule = module {
+    single { RetrofitClient(application = androidContext()).newInstance() }
+    single { HttpClient(get()) }
+}
+
+private val repositoryModule = module {
     factory<PokemonRepository> { PokemonRepositoryImpl(pokemonService = get()) }
 }
+
+private val serviceModule = module {
+    factory { get<HttpClient>().create(PokemonService::class.java) }
+}
+
+val dataModules = listOf(
+    othersModules,
+    connectionModule,
+    repositoryModule,
+    serviceModule
+)

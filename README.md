@@ -1,1 +1,1 @@
-# AndroidPokedex
+# Android TCG Pokedex

@@ -1,12 +1,10 @@
 package com.quanticheart.domain.di
 
-import com.quanticheart.domain.usecase.GetFirstGenerationPokemonsUseCase
-import com.quanticheart.domain.usecase.GetPokemonUseCase
-import com.quanticheart.domain.usecase.UpdatePokemonUseCase
+import com.quanticheart.domain.usecase.GetFirstGenerationPokemonsTcgUseCase
+import com.quanticheart.domain.usecase.GetPokemonTcgDetailsUseCase
 import org.koin.dsl.module
 
 val domainModules = module {
-    factory { GetFirstGenerationPokemonsUseCase(pokemonRepository = get()) }
-    factory { GetPokemonUseCase(pokemonRepository = get()) }
-    factory { UpdatePokemonUseCase(pokemonRepository = get()) }
+    factory { GetFirstGenerationPokemonsTcgUseCase(pokemonRepository = get()) }
+    factory { GetPokemonTcgDetailsUseCase(pokemonRepository = get()) }
 }
