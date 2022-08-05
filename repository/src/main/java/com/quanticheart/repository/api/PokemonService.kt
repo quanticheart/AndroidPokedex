@@ -5,10 +5,10 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface PokemonService {
-    @GET("tcg/classic")
+    @GET("classic")
     suspend fun getPokemons(): List<Card>
 
-    @GET("tcg/classic/{id}")
+    @GET("classic/{id}")
     suspend fun getPokemon(
         @Path("id") id: String
     ): Card
