@@ -12,9 +12,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = "https://tcg.poketudo.com/api/"
-private const val CACHE_SIZE = 5 * 1024 * 1024L // 5 MB de cache
-
 class RetrofitClient(private val application: Context) {
 
     private val gson: Gson by lazy { GsonBuilder().create() }
@@ -38,13 +35,13 @@ class RetrofitClient(private val application: Context) {
 
     fun newInstance(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(HttpConstants.baseUrl)
             .client(okHttp)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
 
     private fun cacheSize(): Cache {
-        return Cache(application.cacheDir, CACHE_SIZE)
+        return Cache(application.cacheDir, HttpConstants.cacheSize)
     }
 }

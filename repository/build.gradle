@@ -15,9 +15,16 @@ android {
     }
 
     buildTypes {
+        debug{
+            buildConfigField "String", "baseUrl", "\"https://tcg.poketudo.com/api/\""
+            buildConfigField "String", "authKey", "\"authKey\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "baseUrl", "\"https://tcg.poketudo.com/api/\""
+            buildConfigField "String", "authKey", "\"authKey\""
+            build
         }
     }
     compileOptions {

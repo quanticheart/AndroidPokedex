@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Poké TCG</string>
+    <string name="app_name_debug">Poké TCG Debug</string>
+
     <string name="pokedex">POKEDEX</string>
     <string name="sair">SAIR</string>
     <string name="logo_description">pokemon tcg game</string>
