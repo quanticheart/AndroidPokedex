@@ -1,7 +1,7 @@
-package com.quanticheart.repository.retrofit.interceptor
+package com.quanticheart.repository.base.retrofit.interceptor
 
 import android.util.Log
-import com.quanticheart.repository.retrofit.HttpConstants
+import com.quanticheart.repository.base.retrofit.HttpConstants
 import okhttp3.Interceptor
 import okhttp3.Response
 

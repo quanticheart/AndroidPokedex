@@ -1,4 +1,4 @@
-package com.quanticheart.pokemontcg
+package com.quanticheart.pokemontcg.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,7 @@ import com.quanticheart.pokemontcg.databinding.ActivityMainBinding
 import com.quanticheart.pokemontcg.presentation.listCards.ListPokemonsActivity
 
 class MainActivity : AppCompatActivity() {
-    private val binding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
-    }
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

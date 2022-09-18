@@ -3,9 +3,8 @@
 package com.quanticheart.pokemontcg
 
 import android.app.Application
-import com.quanticheart.domain.di.domainModules
-import com.quanticheart.pokemontcg.di.presentationModules
-import com.quanticheart.repository.di.dataModules
+import com.quanticheart.domain.domainModules
+import com.quanticheart.repository.dataModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -15,9 +14,7 @@ class AppApplication : Application() {
 
         startKoin {
             androidContext(this@AppApplication)
-            modules(presentationModules)
-            modules(domainModules)
-            modules(dataModules)
+            modules(presentationModules + domainModules + dataModules)
         }
     }
 }

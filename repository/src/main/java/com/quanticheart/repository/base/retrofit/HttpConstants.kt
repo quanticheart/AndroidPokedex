@@ -1,4 +1,4 @@
-package com.quanticheart.repository.retrofit
+package com.quanticheart.repository.base.retrofit
 
 import com.quanticheart.repository.BuildConfig
 

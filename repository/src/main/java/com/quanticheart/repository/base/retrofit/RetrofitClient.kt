@@ -1,11 +1,11 @@
-package com.quanticheart.repository.retrofit
+package com.quanticheart.repository.base.retrofit
 
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.quanticheart.repository.retrofit.interceptor.AuthInterceptor
-import com.quanticheart.repository.retrofit.interceptor.CacheInterceptor
-import com.quanticheart.repository.retrofit.interceptor.LoggingInterceptor
+import com.quanticheart.repository.base.retrofit.interceptor.AuthInterceptor
+import com.quanticheart.repository.base.retrofit.interceptor.CacheInterceptor
+import com.quanticheart.repository.base.retrofit.interceptor.LoggingInterceptor
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

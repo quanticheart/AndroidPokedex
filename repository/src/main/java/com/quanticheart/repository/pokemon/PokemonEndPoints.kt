@@ -1,10 +1,10 @@
-package com.quanticheart.repository.api
+package com.quanticheart.repository.pokemon
 
-import com.quanticheart.repository.model.Card
+import com.quanticheart.repository.pokemon.responses.Card
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface PokemonService {
+interface PokemonEndPoints {
     @GET("classic")
     suspend fun getPokemons(): List<Card>
 

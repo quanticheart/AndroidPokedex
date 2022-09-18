@@ -1,4 +1,4 @@
-package com.quanticheart.repository.utils
+package com.quanticheart.repository.base.utils
 
 interface Mapper<S, T> {
     fun map(source: S): T

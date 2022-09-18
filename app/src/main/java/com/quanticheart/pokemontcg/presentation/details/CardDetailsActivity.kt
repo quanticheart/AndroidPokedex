@@ -6,8 +6,8 @@ import com.quanticheart.core.extentions.*
 import com.quanticheart.domain.model.Pokemon
 import com.quanticheart.domain.model.ViewState
 import com.quanticheart.pokemontcg.R
-import com.quanticheart.pokemontcg.constants.INTENT_KEY_DETAILS
 import com.quanticheart.pokemontcg.databinding.ActivityPokedexBinding
+import com.quanticheart.pokemontcg.presentation.constants.INTENT_KEY_DETAILS
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -16,9 +16,7 @@ class CardDetailsActivity : AppCompatActivity() {
 
     private val viewModel: CardDetailsViewModel by viewModel()
     private val picasso: Picasso by inject()
-    private val binding by lazy {
-        ActivityPokedexBinding.inflate(layoutInflater)
-    }
+    private val binding by lazy { ActivityPokedexBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,4 +1,4 @@
-package com.quanticheart.repository.model
+package com.quanticheart.repository.pokemon.responses
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,13 +1,12 @@
-package com.quanticheart.repository.repository
+package com.quanticheart.repository.pokemon
 
 import com.quanticheart.domain.model.Pokemon
 import com.quanticheart.domain.model.PokemonDetails
 import com.quanticheart.domain.repository.PokemonRepository
-import com.quanticheart.repository.api.PokemonService
-import com.quanticheart.repository.mapper.PokemonResponseToDetailsMapper
-import com.quanticheart.repository.mapper.PokemonResponseToListMapper
+import com.quanticheart.repository.pokemon.mapper.PokemonResponseToDetailsMapper
+import com.quanticheart.repository.pokemon.mapper.PokemonResponseToListMapper
 
-class PokemonRepositoryImpl(private val pokemonService: PokemonService) : PokemonRepository {
+class PokemonRepositoryImpl(private val pokemonService: PokemonEndPoints) : PokemonRepository {
 
     private val pokemonListMapper = PokemonResponseToListMapper()
     private val pokemonDetailsMapper: PokemonResponseToDetailsMapper =

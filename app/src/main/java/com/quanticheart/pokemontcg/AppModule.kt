@@ -1,4 +1,4 @@
-package com.quanticheart.pokemontcg.di
+package com.quanticheart.pokemontcg
 
 import com.quanticheart.pokemontcg.presentation.listCards.ListPokemonsViewModel
 import com.quanticheart.pokemontcg.presentation.details.CardDetailsViewModel

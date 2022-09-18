@@ -1,8 +1,8 @@
-package com.quanticheart.repository.mapper
+package com.quanticheart.repository.pokemon.mapper
 
 import com.quanticheart.domain.model.Pokemon
-import com.quanticheart.repository.model.Card
-import com.quanticheart.repository.utils.Mapper
+import com.quanticheart.repository.pokemon.responses.Card
+import com.quanticheart.repository.base.utils.Mapper
 
 class PokemonResponseToListMapper : Mapper<List<Card>, List<Pokemon>> {
     override fun map(source: List<Card>): List<Pokemon> =

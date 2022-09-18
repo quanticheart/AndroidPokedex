@@ -1,4 +1,4 @@
-package com.quanticheart.repository.retrofit.interceptor
+package com.quanticheart.repository.base.retrofit.interceptor
 
 import com.quanticheart.repository.BuildConfig
 import okhttp3.logging.HttpLoggingInterceptor

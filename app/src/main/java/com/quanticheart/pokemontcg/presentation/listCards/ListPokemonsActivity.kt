@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.quanticheart.core.extentions.startActivity
 import com.quanticheart.domain.model.ViewState
 import com.quanticheart.pokemontcg.R
-import com.quanticheart.pokemontcg.constants.INTENT_KEY_DETAILS
 import com.quanticheart.pokemontcg.databinding.ActivityListPokemonsBinding
+import com.quanticheart.pokemontcg.presentation.constants.INTENT_KEY_DETAILS
 import com.quanticheart.pokemontcg.presentation.details.CardDetailsActivity
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
@@ -17,9 +17,7 @@ class ListPokemonsActivity : AppCompatActivity() {
     private lateinit var adapter: ListPokemonsAdapter
     private val viewModel: ListPokemonsViewModel by viewModel()
     private val picasso: Picasso by inject()
-    private val binding by lazy {
-        ActivityListPokemonsBinding.inflate(layoutInflater)
-    }
+    private val binding by lazy { ActivityListPokemonsBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

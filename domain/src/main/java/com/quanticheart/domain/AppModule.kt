@@ -1,4 +1,4 @@
-package com.quanticheart.domain.di
+package com.quanticheart.domain
 
 import com.quanticheart.domain.usecase.GetFirstGenerationPokemonsTcgUseCase
 import com.quanticheart.domain.usecase.GetPokemonTcgDetailsUseCase
