@@ -16,29 +16,27 @@ class UserRepositoryImpl(
 
     override suspend fun getSession(): Result<User> {
         mAuth.currentUser?.reload()
-        val firebaseUser = mAuth.currentUser
-        return if (firebaseUser == null) {
-            Result.failure(Exception("Usuário não logado"))
-        } else {
+        return mAuth.currentUser?.let {
             val user = firebaseFirestore.collection("users")
-                .document(firebaseUser.uid).get().await().toObject(User::class.java)
+                .document(it.uid).get().await().toObject(User::class.java)
             if (user == null) {
                 Result.failure(Exception("Usuário não encontrado"))
             } else {
-                user.id = firebaseUser.uid
+                user.id = it.uid
                 Result.success(user)
             }
+        } ?: run {
+            Result.failure(Exception("Usuário não logado"))
         }
     }
 
     override suspend fun login(credentials: Credentials): Result<User> {
         return try {
             mAuth.signInWithEmailAndPassword(credentials.email, credentials.password).await()
-            val firebaseUser = mAuth.currentUser
-            if (firebaseUser == null) {
+            mAuth.currentUser?.let {
+                Result.success(User(it.displayName ?: ""))
+            } ?: run {
                 Result.failure(Exception("Usuário ou senha inválido"))
-            } else {
-                Result.success(User(firebaseUser.displayName ?: ""))
             }
         } catch (e: Exception) {
             Result.failure(Exception(e))
@@ -48,20 +46,19 @@ class UserRepositoryImpl(
     override suspend fun create(data: NewUser): Result<User> {
         return try {
             mAuth.createUserWithEmailAndPassword(data.email, data.password).await()
-            val userId = mAuth.currentUser?.uid
-            if (userId == null) {
-                Result.failure(Exception("Não foi possível criar a conta"))
-            } else {
+            mAuth.currentUser?.uid?.let {
                 val newUserFirebasePayload =
                     NewUserFirebasePayloadMapper.mapToNewUserFirebasePayload(data)
 
                 firebaseFirestore
                     .collection("users")
-                    .document(userId)
+                    .document(it)
                     .set(newUserFirebasePayload)
                     .await()
 
                 Result.success(NewUserFirebasePayloadMapper.mapToUser(newUserFirebasePayload))
+            } ?: run {
+                Result.failure(Exception("Não foi possível criar a conta"))
             }
         } catch (e: Exception) {
             Result.failure(e)
@@ -79,8 +76,12 @@ class UserRepositoryImpl(
 
     override suspend fun update(password: String): Result<String> {
         return try {
-            mAuth.currentUser?.updatePassword(password)?.await()
-            Result.success("Verifique sua caixa de e-mail")
+            mAuth.currentUser?.let {
+                it.updatePassword(password).await()
+                Result.success("Verifique sua caixa de e-mail")
+            } ?: run {
+                Result.failure(Exception("Usuário não encontrado"))
+            }
         } catch (e: Exception) {
             Result.failure(e)
         }
@@ -88,7 +89,7 @@ class UserRepositoryImpl(
 
     override suspend fun logout(): Result<Boolean> {
         return try {
-            FirebaseAuth.getInstance().signOut()
+            mAuth.signOut()
             Result.success(true)
         } catch (e: Exception) {
             Result.failure(e)
