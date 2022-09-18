@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.quanticheart.domain.model.Pokemon
 import com.quanticheart.domain.model.ViewState
-import com.quanticheart.domain.usecase.GetFirstGenerationPokemonsTcgUseCase
+import com.quanticheart.domain.model.pokemon.Pokemon
+import com.quanticheart.domain.usecase.pokemon.GetFirstGenerationPokemonsTcgUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -22,7 +22,7 @@ class ListPokemonsViewModel(
     fun getPokemons() {
         _pokemonResult.postValue(ViewState.Loading)
         viewModelScope.launch(Dispatchers.IO) {
-            kotlin.runCatching {
+            runCatching {
                 getFirstGenerationPokemonsTcgUseCase()
             }.onSuccess {
                 _pokemonResult.postValue(ViewState.Success(it.getOrDefault(listOf())))

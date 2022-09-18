@@ -4,14 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.quanticheart.domain.model.Pokemon
-import com.quanticheart.domain.model.PokemonDetails
 import com.quanticheart.domain.model.ViewState
-import com.quanticheart.domain.usecase.GetPokemonTcgDetailsUseCase
+import com.quanticheart.domain.model.pokemon.Pokemon
+import com.quanticheart.domain.model.pokemon.PokemonDetails
+import com.quanticheart.domain.usecase.pokemon.GetPokemonTcgDetailsUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class CardDetailsViewModel(val getPokemonTcgDetailsUseCase: GetPokemonTcgDetailsUseCase) : ViewModel() {
+class CardDetailsViewModel(val getPokemonTcgDetailsUseCase: GetPokemonTcgDetailsUseCase) :
+    ViewModel() {
 
     private lateinit var pokemon: Pokemon
 

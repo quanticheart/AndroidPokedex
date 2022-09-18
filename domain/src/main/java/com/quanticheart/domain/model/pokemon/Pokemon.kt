@@ -1,4 +1,4 @@
-package com.quanticheart.domain.model
+package com.quanticheart.domain.model.pokemon
 
 import java.io.Serializable
 

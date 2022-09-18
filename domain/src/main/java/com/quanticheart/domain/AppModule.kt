@@ -1,7 +1,7 @@
 package com.quanticheart.domain
 
-import com.quanticheart.domain.usecase.GetFirstGenerationPokemonsTcgUseCase
-import com.quanticheart.domain.usecase.GetPokemonTcgDetailsUseCase
+import com.quanticheart.domain.usecase.pokemon.GetFirstGenerationPokemonsTcgUseCase
+import com.quanticheart.domain.usecase.pokemon.GetPokemonTcgDetailsUseCase
 import org.koin.dsl.module
 
 val domainModules = module {

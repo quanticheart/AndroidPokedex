@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.quanticheart.core.extentions.setGridLayout
-import com.quanticheart.domain.model.Pokemon
+import com.quanticheart.domain.model.pokemon.Pokemon
 import com.quanticheart.pokemontcg.R
 import com.quanticheart.pokemontcg.databinding.PokemonListItemBinding
 import com.squareup.picasso.Picasso

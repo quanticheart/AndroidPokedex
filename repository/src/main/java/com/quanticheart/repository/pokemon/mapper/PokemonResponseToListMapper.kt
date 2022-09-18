@@ -1,6 +1,6 @@
 package com.quanticheart.repository.pokemon.mapper
 
-import com.quanticheart.domain.model.Pokemon
+import com.quanticheart.domain.model.pokemon.Pokemon
 import com.quanticheart.repository.pokemon.responses.Card
 import com.quanticheart.repository.base.utils.Mapper
 

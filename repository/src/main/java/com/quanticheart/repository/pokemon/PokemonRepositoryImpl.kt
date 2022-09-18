@@ -1,7 +1,7 @@
 package com.quanticheart.repository.pokemon
 
-import com.quanticheart.domain.model.Pokemon
-import com.quanticheart.domain.model.PokemonDetails
+import com.quanticheart.domain.model.pokemon.Pokemon
+import com.quanticheart.domain.model.pokemon.PokemonDetails
 import com.quanticheart.domain.repository.PokemonRepository
 import com.quanticheart.repository.pokemon.mapper.PokemonResponseToDetailsMapper
 import com.quanticheart.repository.pokemon.mapper.PokemonResponseToListMapper

@@ -1,7 +1,7 @@
 package com.quanticheart.domain.repository
 
-import com.quanticheart.domain.model.Pokemon
-import com.quanticheart.domain.model.PokemonDetails
+import com.quanticheart.domain.model.pokemon.Pokemon
+import com.quanticheart.domain.model.pokemon.PokemonDetails
 
 interface PokemonRepository {
     suspend fun getPokemons(): Result<List<Pokemon>>

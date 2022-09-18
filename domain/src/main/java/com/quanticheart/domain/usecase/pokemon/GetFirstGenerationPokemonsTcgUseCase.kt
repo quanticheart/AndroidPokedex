@@ -1,4 +1,4 @@
-package com.quanticheart.domain.usecase
+package com.quanticheart.domain.usecase.pokemon
 
 import com.quanticheart.domain.repository.PokemonRepository
 

@@ -3,8 +3,8 @@ package com.quanticheart.pokemontcg.presentation.details
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.quanticheart.core.extentions.*
-import com.quanticheart.domain.model.Pokemon
 import com.quanticheart.domain.model.ViewState
+import com.quanticheart.domain.model.pokemon.Pokemon
 import com.quanticheart.pokemontcg.R
 import com.quanticheart.pokemontcg.databinding.ActivityPokedexBinding
 import com.quanticheart.pokemontcg.presentation.constants.INTENT_KEY_DETAILS
