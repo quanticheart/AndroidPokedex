@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.quanticheart.pokemontcg.presentation.login.login.LoginFragment"
+        android:name="com.quanticheart.tcg.presentation.login.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.quanticheart.pokemontcg.presentation.login.signup.SignUpFragment"
+        android:name="com.quanticheart.tcg.presentation.login.signup.SignUpFragment"
         android:label="SignUpFragment"
         tools:layout="@layout/fragment_sign_up">
         <deepLink

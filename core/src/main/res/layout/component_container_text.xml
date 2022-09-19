@@ -12,6 +12,6 @@
     <EditText
         android:id="@+id/editText"
         style="@style/fieldEditText"
-        tools:text="user@apps.com.br" />
+        tools:hint="user@apps.com.br" />
 
 </LinearLayout>

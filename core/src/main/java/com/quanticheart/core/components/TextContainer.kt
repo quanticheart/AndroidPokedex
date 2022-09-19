@@ -16,7 +16,7 @@ class TextContainer @JvmOverloads constructor(
     defStyleAttr: Int = 0,
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
-    private var inputType = 2
+    private var inputTypeSelected = 2
 
     private val binding =
         ComponentContainerTextBinding.inflate(LayoutInflater.from(context), this, true)
@@ -31,7 +31,7 @@ class TextContainer @JvmOverloads constructor(
             val placeholder = getString(R.styleable.TextContainer_placeholder) ?: ""
             binding.editText.hint = placeholder
 
-            inputType = getInt(R.styleable.TextContainer_inputType, inputType)
+            inputTypeSelected = getInt(R.styleable.TextContainer_inputType, inputTypeSelected)
         }
 
         binding.editText.apply {
@@ -39,7 +39,7 @@ class TextContainer @JvmOverloads constructor(
                 it?.toString()?.let { text -> callback?.let { send -> send(text) } }
             }
 
-            when (inputType) {
+            when (inputTypeSelected) {
                 0 -> inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 1 -> inputType =
                     InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS

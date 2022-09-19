@@ -22,9 +22,6 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">16sp</item>
         <item name="android:background">@drawable/rounded_button</item>
-        <item name="android:layout_marginStart">@dimen/rounded_button_padding</item>
-        <item name="android:layout_marginEnd">@dimen/rounded_button_padding</item>
-        <item name="android:layout_marginTop">@dimen/rounded_button_padding</item>
     </style>
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">

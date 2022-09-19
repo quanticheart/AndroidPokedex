@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.quanticheart.pokemontcg">
+    package="com.quanticheart.tcg">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
-
-    <uses-feature
-        android:name="android.hardware.camera.autofocus"
-        android:required="false" />
 
     <application
-        android:name=".AppApplication"
-        android:allowBackup="true"
+        android:name="com.quanticheart.tcg.AppApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
-        android:supportsRtl="true"
         android:theme="@style/FullScreen">
 
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher_foreground" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="tcg" />
+
         <activity
-            android:name=".presentation.splash.SplashActivity"
-            android:exported="true">
+            android:name="com.quanticheart.tcg.presentation.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,12 +34,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".presentation.home.HomeActivity" />
+        <activity android:name="com.quanticheart.tcg.presentation.home.HomeActivity" />
 
-        <activity android:name=".presentation.details.CardDetailsActivity" />
-        <activity android:name="com.quanticheart.pokemontcg.presentation.home.listCards.ListPokemonsActivity" />
-        <activity android:name=".presentation.about.AboutActivity" />
-        <activity android:name=".presentation.login.LoginActivity" />
+        <activity android:name="com.quanticheart.tcg.presentation.details.CardDetailsActivity" />
+        <activity android:name="com.quanticheart.tcg.presentation.home.listCards.ListPokemonsActivity" />
+        <activity android:name="com.quanticheart.tcg.presentation.about.AboutActivity" />
+        <activity android:name="com.quanticheart.tcg.presentation.login.LoginActivity" />
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
 }
 
 def keystorePropertiesFile = rootProject.file("app/keystore.properties")
@@ -14,7 +15,7 @@ android {
     defaultConfig {
         resConfigs 'pt'
 
-        applicationId "com.quanticheart.pokemontcg"
+        applicationId "com.quanticheart.tcg"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -47,7 +48,7 @@ android {
             splits.density.enable = false
             aaptOptions.cruncherEnabled = false
             ext.alwaysUpdateBuildId = false
-            applicationIdSuffix ".debug"
+//            applicationIdSuffix ".debug"
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
