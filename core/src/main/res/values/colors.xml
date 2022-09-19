@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="secondaryTextColor">#9EB0BC</color>
+
+    <color name="linkTextColor">@color/purple_200</color>
+    <color name="linkTextColorClicked">#E49C0C</color>
+    <color name="linkTextColorDisabled">#666</color>
 </resources>

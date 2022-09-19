@@ -1,4 +1,4 @@
-package com.quanticheart.pokemontcg.presentation.listCards
+package com.quanticheart.pokemontcg.presentation.home.listCards
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

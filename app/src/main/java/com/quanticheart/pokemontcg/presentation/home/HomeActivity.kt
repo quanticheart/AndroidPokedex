@@ -1,12 +1,12 @@
-package com.quanticheart.pokemontcg.presentation
+package com.quanticheart.pokemontcg.presentation.home
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.quanticheart.pokemontcg.databinding.ActivityMainBinding
-import com.quanticheart.pokemontcg.presentation.listCards.ListPokemonsActivity
+import com.quanticheart.pokemontcg.presentation.home.listCards.ListPokemonsActivity
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {

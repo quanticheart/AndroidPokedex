@@ -7,7 +7,7 @@ import com.quanticheart.domain.model.ViewState
 import com.quanticheart.domain.model.pokemon.Pokemon
 import com.quanticheart.pokemontcg.R
 import com.quanticheart.pokemontcg.databinding.ActivityPokedexBinding
-import com.quanticheart.pokemontcg.presentation.constants.INTENT_KEY_DETAILS
+import com.quanticheart.pokemontcg.presentation.details.constants.INTENT_KEY_DETAILS
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel

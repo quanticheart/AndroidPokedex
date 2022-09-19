@@ -8,6 +8,7 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
@@ -20,8 +21,9 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/FullScreen">
+
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,8 +31,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.quanticheart.pokemontcg.presentation.details.CardDetailsActivity" />
-        <activity android:name="com.quanticheart.pokemontcg.presentation.listCards.ListPokemonsActivity" />
+
+        <activity android:name=".presentation.home.HomeActivity" />
+
+        <activity android:name=".presentation.details.CardDetailsActivity" />
+        <activity android:name="com.quanticheart.pokemontcg.presentation.home.listCards.ListPokemonsActivity" />
+        <activity android:name=".presentation.about.AboutActivity" />
+        <activity android:name=".presentation.login.LoginActivity" />
     </application>
 
 </manifest>
