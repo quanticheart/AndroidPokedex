@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 import com.quanticheart.core.construct.ViewConstruct
+import com.quanticheart.core.dialog.LoadingDialog
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
@@ -20,6 +20,8 @@ abstract class BaseFragment<viewModel : ViewModel, VB : ViewBinding>(private val
 
     private var _binding: VB? = null
     protected val binding get() = _binding!!
+
+    private val loading: LoadingDialog? by lazy { context?.let { LoadingDialog(it) } }
 
     protected abstract val viewModel: viewModel
 
@@ -39,9 +41,9 @@ abstract class BaseFragment<viewModel : ViewModel, VB : ViewBinding>(private val
         _binding = null
     }
 
-    fun showMessage(message: String?) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-    }
+    fun showLoading() = loading?.safeShow()
+
+    fun hideLoading() = loading?.safeHide()
 
     fun finish() = activity?.finish()
 }

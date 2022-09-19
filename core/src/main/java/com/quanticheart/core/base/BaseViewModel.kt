@@ -24,4 +24,8 @@ abstract class BaseViewModel : ViewModel() {
     protected fun String?.showError() {
         _error.postValue(this ?: "Error")
     }
+
+    fun consumedError() {
+        _error.value = null
+    }
 }
