@@ -1,32 +1,39 @@
 package com.quanticheart.repository.user
 
+import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.quanticheart.domain.model.user.Credentials
 import com.quanticheart.domain.model.user.NewUser
 import com.quanticheart.domain.model.user.User
 import com.quanticheart.domain.repository.UserRepository
+import com.quanticheart.repository.user.mapper.FirebaseHandleError
 import com.quanticheart.repository.user.mapper.NewUserFirebasePayloadMapper
 import kotlinx.coroutines.tasks.await
 
 class UserRepositoryImpl(
+    private val context: Context,
     private val mAuth: FirebaseAuth,
     private val firebaseFirestore: FirebaseFirestore
 ) : UserRepository {
 
     override suspend fun getSession(): Result<User> {
-        mAuth.currentUser?.reload()
-        return mAuth.currentUser?.let {
-            val user = firebaseFirestore.collection("users")
-                .document(it.uid).get().await().toObject(User::class.java)
-            if (user == null) {
-                Result.failure(Exception("Usuário não encontrado"))
-            } else {
-                user.id = it.uid
-                Result.success(user)
+        return try {
+            mAuth.currentUser?.reload()
+            return mAuth.currentUser?.let {
+                val user = firebaseFirestore.collection("users")
+                    .document(it.uid).get().await().toObject(User::class.java)
+                if (user == null) {
+                    Result.failure(Exception("Usuário não encontrado"))
+                } else {
+                    user.id = it.uid
+                    Result.success(user)
+                }
+            } ?: run {
+                Result.failure(Exception("Usuário não logado"))
             }
-        } ?: run {
-            Result.failure(Exception("Usuário não logado"))
+        } catch (e: Exception) {
+            handleError(e)
         }
     }
 
@@ -39,7 +46,7 @@ class UserRepositoryImpl(
                 Result.failure(Exception("Usuário ou senha inválido"))
             }
         } catch (e: Exception) {
-            Result.failure(Exception(e))
+            handleError(e)
         }
     }
 
@@ -61,7 +68,7 @@ class UserRepositoryImpl(
                 Result.failure(Exception("Não foi possível criar a conta"))
             }
         } catch (e: Exception) {
-            Result.failure(e)
+            handleError(e)
         }
     }
 
@@ -70,7 +77,7 @@ class UserRepositoryImpl(
             mAuth.sendPasswordResetEmail(email).await()
             Result.success("Verifique sua caixa de e-mail")
         } catch (e: Exception) {
-            Result.failure(e)
+            handleError(e)
         }
     }
 
@@ -83,7 +90,7 @@ class UserRepositoryImpl(
                 Result.failure(Exception("Usuário não encontrado"))
             }
         } catch (e: Exception) {
-            Result.failure(e)
+            handleError(e)
         }
     }
 
@@ -92,7 +99,12 @@ class UserRepositoryImpl(
             mAuth.signOut()
             Result.success(true)
         } catch (e: Exception) {
-            Result.failure(e)
+            handleError(e)
         }
+    }
+
+    private fun <T> handleError(e: Exception): Result<T> {
+        val intRes = FirebaseHandleError().map(e)
+        return Result.failure(Exception(context.getString(intRes)))
     }
 }

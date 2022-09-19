@@ -7,6 +7,7 @@ import com.quanticheart.domain.usecase.remote.GetMinAppVersionUseCase
 import com.quanticheart.domain.usecase.user.CreateUserUseCase
 import com.quanticheart.domain.usecase.user.GetSessionUseCase
 import com.quanticheart.domain.usecase.user.LoginUseCase
+import com.quanticheart.domain.usecase.user.RecoverPasswordUseCase
 import org.koin.dsl.module
 
 val domainModules = module {
@@ -17,5 +18,6 @@ val domainModules = module {
     factory { GetSessionUseCase(get()) }
     factory { LoginUseCase(get()) }
     factory { CreateUserUseCase(get()) }
+    factory { RecoverPasswordUseCase(get()) }
     factory { GetMinAppVersionUseCase(get()) }
 }

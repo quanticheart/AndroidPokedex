@@ -15,7 +15,7 @@ class LoginFragment :
 
     override fun view(binding: FragmentLoginBinding): Unit = binding.run {
         tvResetPassword.setOnClickListener {
-
+            viewModel.doLogin(email.text, password.text)
         }
 
         tvNewAccount.setOnClickListener {

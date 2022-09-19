@@ -30,7 +30,7 @@ private val repositoryModule = module {
     factory { Firebase.firestore }
 
     factory<AppRepository> { AppRepositoryImpl() }
-    factory<UserRepository> { UserRepositoryImpl(get(), get()) }
+    factory<UserRepository> { UserRepositoryImpl(get(), get(), get()) }
     factory<PokemonRepository> { PokemonRepositoryImpl(pokemonService = get()) }
 }
 

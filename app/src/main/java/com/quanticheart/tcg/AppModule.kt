@@ -10,7 +10,7 @@ import org.koin.dsl.module
 
 val presentationModules = module {
     viewModel { SplashViewModel(get()) }
-    viewModel { LoginViewModel(get()) }
+    viewModel { LoginViewModel(get(), get()) }
     viewModel { SignUpViewModel(get()) }
 
     viewModel { ListPokemonsViewModel(getFirstGenerationPokemonsTcgUseCase = get()) }
