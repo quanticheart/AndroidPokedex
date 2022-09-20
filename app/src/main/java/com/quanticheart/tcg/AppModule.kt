@@ -1,7 +1,9 @@
 package com.quanticheart.tcg
 
 import com.quanticheart.tcg.presentation.details.CardDetailsViewModel
+import com.quanticheart.tcg.presentation.home.dashboard.DashboardViewModel
 import com.quanticheart.tcg.presentation.home.listCards.ListPokemonsViewModel
+import com.quanticheart.tcg.presentation.home.userCards.UserCardsViewModel
 import com.quanticheart.tcg.presentation.login.login.LoginViewModel
 import com.quanticheart.tcg.presentation.login.signup.SignUpViewModel
 import com.quanticheart.tcg.presentation.splash.SplashViewModel
@@ -13,6 +15,8 @@ val presentationModules = module {
     viewModel { LoginViewModel(get(), get()) }
     viewModel { SignUpViewModel(get()) }
 
+    viewModel { DashboardViewModel() }
+    viewModel { UserCardsViewModel() }
     viewModel { ListPokemonsViewModel(getFirstGenerationPokemonsTcgUseCase = get()) }
     viewModel { CardDetailsViewModel(getPokemonTcgDetailsUseCase = get()) }
 }

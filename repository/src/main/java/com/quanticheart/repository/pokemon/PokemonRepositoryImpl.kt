@@ -13,16 +13,28 @@ class PokemonRepositoryImpl(private val pokemonService: PokemonEndPoints) : Poke
         PokemonResponseToDetailsMapper()
 
     override suspend fun getPokemons(): Result<List<Pokemon>> {
-        return Result.success(
-            pokemonListMapper.map(
-                pokemonService.getPokemons()
-            )
-        )
+        val response = pokemonService.getPokemons()
+        return if (response.isSuccessful) {
+            response.body()?.let {
+                Result.success(pokemonListMapper.map(it))
+            } ?: run {
+                Result.failure(Throwable("Erro ao carregar dados"))
+            }
+        } else {
+            Result.failure(Throwable("Erro ao carregar dados"))
+        }
     }
 
     override suspend fun getPokemon(number: String): Result<PokemonDetails> {
-        return Result.success(
-            pokemonDetailsMapper.map(pokemonService.getPokemon(number))
-        )
+        val response = pokemonService.getPokemon(number)
+        return if (response.isSuccessful) {
+            response.body()?.let {
+                Result.success(pokemonDetailsMapper.map(it))
+            } ?: run {
+                Result.failure(Throwable("Erro ao carregar dados"))
+            }
+        } else {
+            Result.failure(Throwable("Erro ao carregar dados"))
+        }
     }
 }

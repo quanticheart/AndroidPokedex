@@ -35,9 +35,7 @@
         </activity>
 
         <activity android:name="com.quanticheart.tcg.presentation.home.HomeActivity" />
-
         <activity android:name="com.quanticheart.tcg.presentation.details.CardDetailsActivity" />
-        <activity android:name="com.quanticheart.tcg.presentation.home.listCards.ListPokemonsActivity" />
         <activity android:name="com.quanticheart.tcg.presentation.about.AboutActivity" />
         <activity android:name="com.quanticheart.tcg.presentation.login.LoginActivity" />
     </application>

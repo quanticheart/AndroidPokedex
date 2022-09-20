@@ -48,7 +48,7 @@ android {
             splits.density.enable = false
             aaptOptions.cruncherEnabled = false
             ext.alwaysUpdateBuildId = false
-//            applicationIdSuffix ".debug"
+            applicationIdSuffix ".debug"
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

@@ -1,6 +1,7 @@
 package com.quanticheart.tcg.presentation.login.signup
 
 import com.quanticheart.core.base.BaseFragment
+import com.quanticheart.core.dialog.msgDialog
 import com.quanticheart.tcg.databinding.FragmentSignUpBinding
 import com.quanticheart.tcg.goHome
 import com.quanticheart.tcg.goTerms
@@ -40,11 +41,14 @@ class SignUpFragment :
 
     override fun viewModel(viewModel: SignUpViewModel): Unit = viewModel.run {
         loading.observe(viewLifecycleOwner) {
-
+            if (it) showLoading() else hideLoading()
         }
 
         error.observe(viewLifecycleOwner) {
-
+            it?.let {
+                activity?.msgDialog(it)
+                viewModel.consumedError()
+            }
         }
 
         success.observe(viewLifecycleOwner) {

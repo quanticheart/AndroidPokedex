@@ -1,10 +1,11 @@
 package com.quanticheart.tcg.presentation.home
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import com.quanticheart.core.extentions.setupNavigation
+import com.quanticheart.tcg.R
 import com.quanticheart.tcg.databinding.ActivityMainBinding
-import com.quanticheart.tcg.presentation.home.listCards.ListPokemonsActivity
 
 class HomeActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -12,12 +13,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        setUpListeners()
-    }
-
-    private fun setUpListeners() {
-        binding.btPokedex.setOnClickListener {
-            startActivity(Intent(this, ListPokemonsActivity::class.java))
-        }
+        val navController = findNavController(R.id.container)
+        binding.navView.setupNavigation(navController)
     }
 }

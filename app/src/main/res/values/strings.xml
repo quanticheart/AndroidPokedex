@@ -5,6 +5,10 @@
     <string name="pokedex">POKEDEX</string>
     <string name="sair">SAIR</string>
 
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_collection">Coleção</string>
+
     <string name="logo_description">pokemon tcg game</string>
     <string name="label_loading">Carregando os dados</string>
     <string name="label_retry">Tentar novamente</string>
