@@ -1,12 +1,3 @@
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#E49C0C</color>
-
-    <color name="colorTextButton">#ffffff</color>
-    <color name="colorBgButton">#e74c3c</color>
-    <color name="colorBgButtonStroke">#1e3799</color>
-    <color name="colorBgButtonPressed">#EEE</color>
-    <color name="background">#e1e1e1</color>
 
 </resources>
