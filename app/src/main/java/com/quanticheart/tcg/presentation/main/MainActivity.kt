@@ -1,4 +1,4 @@
-package com.quanticheart.tcg.presentation.home
+package com.quanticheart.tcg.presentation.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,7 @@ import com.quanticheart.core.extentions.setupNavigation
 import com.quanticheart.tcg.R
 import com.quanticheart.tcg.databinding.ActivityMainBinding
 
-class HomeActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,4 +1,4 @@
-package com.quanticheart.tcg.presentation.home.listCards
+package com.quanticheart.tcg.presentation.main.listCards
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

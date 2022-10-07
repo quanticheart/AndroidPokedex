@@ -1,7 +1,6 @@
-package com.quanticheart.tcg.presentation.home.dashboard
+package com.quanticheart.tcg.presentation.main.dashboard
 
 import androidx.lifecycle.ViewModel
-import com.quanticheart.core.*
 
 class DashboardViewModel : ViewModel() {
 

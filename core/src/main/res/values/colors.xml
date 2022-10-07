@@ -7,8 +7,9 @@
 
     <color name="colorTextButton">#ffffff</color>
     <color name="colorBgButton">#ed1d24</color>
+    <color name="colorBgButtonPressed">#FF4249</color>
+
     <color name="colorBgButtonStroke">#3763af</color>
-    <color name="colorBgButtonPressed">#EEE</color>
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -19,6 +20,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="background">#e1e1e1</color>
+    <color name="disabled">#BABABA</color>
 
     <color name="secondaryTextColor">#9EB0BC</color>
 

@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.quanticheart.tcg.presentation.home.listCards.ListPokemonsFragment"
+        android:name="com.quanticheart.tcg.presentation.main.listCards.ListPokemonsFragment"
         tools:layout="@layout/fragment_list_pokemons" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.quanticheart.tcg.presentation.home.dashboard.DashboardFragment"
+        android:name="com.quanticheart.tcg.presentation.main.dashboard.DashboardFragment"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.quanticheart.tcg.presentation.home.userCards.UserCardsFragment"
+        android:name="com.quanticheart.tcg.presentation.main.userCards.UserCardsFragment"
         tools:layout="@layout/fragment_user_cards" />
 </navigation>

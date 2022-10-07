@@ -1,9 +1,9 @@
 package com.quanticheart.tcg
 
 import com.quanticheart.tcg.presentation.details.CardDetailsViewModel
-import com.quanticheart.tcg.presentation.home.dashboard.DashboardViewModel
-import com.quanticheart.tcg.presentation.home.listCards.ListPokemonsViewModel
-import com.quanticheart.tcg.presentation.home.userCards.UserCardsViewModel
+import com.quanticheart.tcg.presentation.main.dashboard.DashboardViewModel
+import com.quanticheart.tcg.presentation.main.listCards.ListPokemonsViewModel
+import com.quanticheart.tcg.presentation.main.userCards.UserCardsViewModel
 import com.quanticheart.tcg.presentation.login.login.LoginViewModel
 import com.quanticheart.tcg.presentation.login.signup.SignUpViewModel
 import com.quanticheart.tcg.presentation.splash.SplashViewModel

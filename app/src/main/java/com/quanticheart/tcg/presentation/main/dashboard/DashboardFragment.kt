@@ -1,4 +1,4 @@
-package com.quanticheart.tcg.presentation.home.dashboard
+package com.quanticheart.tcg.presentation.main.dashboard
 
 import com.quanticheart.core.base.BaseFragment
 import com.quanticheart.tcg.databinding.FragmentDashboardBinding
@@ -10,8 +10,15 @@ class DashboardFragment :
     override val viewModel: DashboardViewModel by viewModel()
 
     override fun view(binding: FragmentDashboardBinding): Unit = binding.run {
+        btnAbout.setOnClickListener {
+
+        }
+
+        btnExit.setOnClickListener {
+
+        }
     }
 
-    override fun viewModel(viewModel: DashboardViewModel) {
+    override fun viewModel(viewModel: DashboardViewModel): Unit = viewModel.run {
     }
 }

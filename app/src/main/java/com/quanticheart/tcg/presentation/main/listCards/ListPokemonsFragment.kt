@@ -1,4 +1,4 @@
-package com.quanticheart.tcg.presentation.home.listCards
+package com.quanticheart.tcg.presentation.main.listCards
 
 import android.os.Bundle
 import com.quanticheart.core.base.BaseFragment
@@ -26,7 +26,7 @@ class ListPokemonsFragment :
             })
         }
 
-        contentError.btRetry.setOnClickListener {
+        container.setTryReloadCallback {
             viewModel.getPokemons()
         }
 
@@ -46,16 +46,11 @@ class ListPokemonsFragment :
         pokemonResult.observe(viewLifecycleOwner) {
             when (it) {
                 is ViewState.Success -> {
-                    binding.flipper.displayedChild = 1
                     adapter.addItems(it.data)
+                    binding.container.showLayout()
                 }
-                is ViewState.Loading -> {
-                    binding.flipper.displayedChild = 0
-                }
-                is ViewState.Failure -> {
-                    binding.flipper.displayedChild = 2
-                    binding.contentError.tvError.text = it.throwable.message
-                }
+                is ViewState.Loading -> binding.container.showLoading()
+                is ViewState.Failure -> binding.container.showError(it.throwable.message)
             }
         }
         getPokemons()

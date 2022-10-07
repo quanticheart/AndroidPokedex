@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">core</string>
+    <string name="label_retry">Tentar novamente</string>
+    <string name="label_error">error</string>
+    <string name="label_loading">Carregando os dados</string>
 </resources>

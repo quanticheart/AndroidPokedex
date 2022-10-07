@@ -1,4 +1,4 @@
-package com.quanticheart.tcg.presentation.home.listCards
+package com.quanticheart.tcg.presentation.main.listCards
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

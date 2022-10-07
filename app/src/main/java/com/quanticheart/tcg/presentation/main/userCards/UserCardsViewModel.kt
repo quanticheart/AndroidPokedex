@@ -1,4 +1,4 @@
-package com.quanticheart.tcg.presentation.home.userCards
+package com.quanticheart.tcg.presentation.main.userCards
 
 import androidx.lifecycle.ViewModel
 

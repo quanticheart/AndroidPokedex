@@ -18,8 +18,7 @@ import com.quanticheart.core.extentions.toDp
 abstract class BaseFragmentDialog<VB : ViewBinding>(
     private val mContext: Context,
     private val inflate: Inflate<VB>
-) :
-    DialogFragment(), OnDialogActions<VB> {
+) : DialogFragment(), OnDialogActions<VB> {
 
     private var _binding: VB? = null
     protected val binding get() = _binding!!
@@ -98,7 +97,7 @@ abstract class BaseFragmentDialog<VB : ViewBinding>(
     fun safeHide() {
         try {
             dismiss()
-        } catch (e: Exception) {
+        } catch (_: Exception) {
         }
     }
 }
