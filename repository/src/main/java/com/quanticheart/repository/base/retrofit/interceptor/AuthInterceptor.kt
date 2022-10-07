@@ -8,7 +8,7 @@ import okhttp3.Response
 class AuthInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val requestBuilder = chain.request().newBuilder()
-        requestBuilder.addHeader("api-token", HttpConstants.authKey)
+        requestBuilder.addHeader("Api-Token", HttpConstants.authKey)
         val request = requestBuilder.build()
         val response = chain.proceed(request)
         if (response.code == 401) {

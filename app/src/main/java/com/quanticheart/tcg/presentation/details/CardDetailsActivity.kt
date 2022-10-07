@@ -37,11 +37,11 @@ class CardDetailsActivity : AppCompatActivity() {
         viewModel.pokemonResult.observe(this) {
             when (it) {
                 is ViewState.Failure -> {
-                    binding.flipper.displayedChild = 0
+                    binding.flipper.showError(it.throwable.message)
                     toast(it.throwable)
                     finish()
                 }
-                ViewState.Loading -> binding.flipper.displayedChild = 0
+                ViewState.Loading -> binding.flipper.showLoading()
                 is ViewState.Success -> {
                     binding.run {
                         name.text = it.data.name
@@ -53,7 +53,7 @@ class CardDetailsActivity : AppCompatActivity() {
                         description.text = it.data.description
 
                         speak(it.data.description)
-                        binding.flipper.displayedChild = 1
+                        binding.flipper.showLayout()
                     }
                 }
             }

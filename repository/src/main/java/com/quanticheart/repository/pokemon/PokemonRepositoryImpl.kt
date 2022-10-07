@@ -16,7 +16,10 @@ class PokemonRepositoryImpl(private val pokemonService: PokemonEndPoints) : Poke
         val response = pokemonService.getPokemons()
         return if (response.isSuccessful) {
             response.body()?.let {
-                Result.success(pokemonListMapper.map(it))
+                if (it.status)
+                    Result.success(pokemonListMapper.map(it.data!!))
+                else
+                    Result.failure(Throwable(it.message))
             } ?: run {
                 Result.failure(Throwable("Erro ao carregar dados"))
             }
@@ -29,7 +32,10 @@ class PokemonRepositoryImpl(private val pokemonService: PokemonEndPoints) : Poke
         val response = pokemonService.getPokemon(number)
         return if (response.isSuccessful) {
             response.body()?.let {
-                Result.success(pokemonDetailsMapper.map(it))
+                if (it.status)
+                    Result.success(pokemonDetailsMapper.map(it.data!!))
+                else
+                    Result.failure(Throwable(it.message))
             } ?: run {
                 Result.failure(Throwable("Erro ao carregar dados"))
             }
