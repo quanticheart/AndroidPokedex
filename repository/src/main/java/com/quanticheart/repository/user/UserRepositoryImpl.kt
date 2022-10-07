@@ -14,14 +14,14 @@ import kotlinx.coroutines.tasks.await
 class UserRepositoryImpl(
     private val context: Context,
     private val mAuth: FirebaseAuth,
-    private val firebaseFirestore: FirebaseFirestore
+    private val firebaseFireStore: FirebaseFirestore
 ) : UserRepository {
 
     override suspend fun getSession(): Result<User> {
         return try {
             mAuth.currentUser?.reload()
             return mAuth.currentUser?.let {
-                val user = firebaseFirestore.collection("users")
+                val user = firebaseFireStore.collection("users")
                     .document(it.uid).get().await().toObject(User::class.java)
                 if (user == null) {
                     Result.failure(Exception("Usuário não encontrado"))
@@ -57,7 +57,7 @@ class UserRepositoryImpl(
                 val newUserFirebasePayload =
                     NewUserFirebasePayloadMapper.mapToNewUserFirebasePayload(data)
 
-                firebaseFirestore
+                firebaseFireStore
                     .collection("users")
                     .document(it)
                     .set(newUserFirebasePayload)

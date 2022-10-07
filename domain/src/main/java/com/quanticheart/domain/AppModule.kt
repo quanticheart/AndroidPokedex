@@ -4,10 +4,7 @@ import com.quanticheart.domain.usecase.pokemon.GetFirstGenerationPokemonsTcgUseC
 import com.quanticheart.domain.usecase.pokemon.GetPokemonTcgDetailsUseCase
 import com.quanticheart.domain.usecase.remote.GetDashboardMenuUseCase
 import com.quanticheart.domain.usecase.remote.GetMinAppVersionUseCase
-import com.quanticheart.domain.usecase.user.CreateUserUseCase
-import com.quanticheart.domain.usecase.user.GetSessionUseCase
-import com.quanticheart.domain.usecase.user.LoginUseCase
-import com.quanticheart.domain.usecase.user.RecoverPasswordUseCase
+import com.quanticheart.domain.usecase.user.*
 import org.koin.dsl.module
 
 val domainModules = module {
@@ -17,6 +14,7 @@ val domainModules = module {
     factory { GetDashboardMenuUseCase(get()) }
     factory { GetSessionUseCase(get()) }
     factory { LoginUseCase(get()) }
+    factory { LogoutUseCase(get()) }
     factory { CreateUserUseCase(get()) }
     factory { RecoverPasswordUseCase(get()) }
     factory { GetMinAppVersionUseCase(get()) }
