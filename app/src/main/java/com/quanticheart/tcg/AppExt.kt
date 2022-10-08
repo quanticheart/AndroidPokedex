@@ -2,6 +2,10 @@ package com.quanticheart.tcg
 
 import android.app.Activity
 import android.content.Intent
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import com.quanticheart.core.components.ControlLayout
+import com.quanticheart.domain.model.ViewState
 import com.quanticheart.tcg.presentation.about.AboutActivity
 import com.quanticheart.tcg.presentation.details.CardDetailsActivity
 import com.quanticheart.tcg.presentation.main.MainActivity
@@ -25,3 +29,20 @@ fun Activity.goAbout() =
 fun Activity.goTerms() =
     startActivity(Intent(this, AboutActivity::class.java))
 
+
+fun <T> LiveData<ViewState<T>>.observeStateLayout(
+    lifecycleOwner: LifecycleOwner,
+    controlLayout: ControlLayout,
+    callback: (data: T) -> Unit
+) {
+    observe(lifecycleOwner) {
+        when (it) {
+            is ViewState.Success -> {
+                callback(it.data)
+                controlLayout.showLayout()
+            }
+            is ViewState.Loading -> controlLayout.showLoading()
+            is ViewState.Failure -> controlLayout.showError(it.throwable.message)
+        }
+    }
+}

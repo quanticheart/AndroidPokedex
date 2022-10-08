@@ -2,7 +2,7 @@ package com.quanticheart.repository.pokemon.responses
 
 import com.google.gson.annotations.SerializedName
 
-data class Card (
+data class ResponseCard (
     @SerializedName("id") val id : String,
     @SerializedName("name") val name : String,
     @SerializedName("supertype") val supertype : String,

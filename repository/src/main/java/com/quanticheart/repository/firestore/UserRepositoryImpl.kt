@@ -1,4 +1,4 @@
-package com.quanticheart.repository.user
+package com.quanticheart.repository.firestore
 
 import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
@@ -7,8 +7,8 @@ import com.quanticheart.domain.model.user.Credentials
 import com.quanticheart.domain.model.user.NewUser
 import com.quanticheart.domain.model.user.User
 import com.quanticheart.domain.repository.UserRepository
-import com.quanticheart.repository.user.mapper.FirebaseHandleError
-import com.quanticheart.repository.user.mapper.NewUserFirebasePayloadMapper
+import com.quanticheart.repository.firestore.mapper.NewUserFirebasePayloadMapper
+import com.quanticheart.repository.firestore.mapper.handleError
 import kotlinx.coroutines.tasks.await
 
 class UserRepositoryImpl(
@@ -33,7 +33,7 @@ class UserRepositoryImpl(
                 Result.failure(Exception("Usuário não logado"))
             }
         } catch (e: Exception) {
-            handleError(e)
+            context.handleError(e)
         }
     }
 
@@ -46,7 +46,7 @@ class UserRepositoryImpl(
                 Result.failure(Exception("Usuário ou senha inválido"))
             }
         } catch (e: Exception) {
-            handleError(e)
+            context.handleError(e)
         }
     }
 
@@ -68,7 +68,7 @@ class UserRepositoryImpl(
                 Result.failure(Exception("Não foi possível criar a conta"))
             }
         } catch (e: Exception) {
-            handleError(e)
+            context.handleError(e)
         }
     }
 
@@ -77,7 +77,7 @@ class UserRepositoryImpl(
             mAuth.sendPasswordResetEmail(email).await()
             Result.success("Verifique sua caixa de e-mail")
         } catch (e: Exception) {
-            handleError(e)
+            context.handleError(e)
         }
     }
 
@@ -90,7 +90,7 @@ class UserRepositoryImpl(
                 Result.failure(Exception("Usuário não encontrado"))
             }
         } catch (e: Exception) {
-            handleError(e)
+            context.handleError(e)
         }
     }
 
@@ -99,12 +99,7 @@ class UserRepositoryImpl(
             mAuth.signOut()
             Result.success(true)
         } catch (e: Exception) {
-            handleError(e)
+            context.handleError(e)
         }
-    }
-
-    private fun <T> handleError(e: Exception): Result<T> {
-        val intRes = FirebaseHandleError().map(e)
-        return Result.failure(Exception(context.getString(intRes)))
     }
 }

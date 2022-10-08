@@ -1,11 +1,11 @@
 package com.quanticheart.repository.pokemon.mapper
 
 import com.quanticheart.domain.model.pokemon.PokemonDetails
-import com.quanticheart.repository.pokemon.responses.Card
+import com.quanticheart.repository.pokemon.responses.ResponseCard
 import com.quanticheart.repository.base.utils.Mapper
 
-class PokemonResponseToDetailsMapper : Mapper<Card, PokemonDetails> {
-    override fun map(source: Card): PokemonDetails {
+class PokemonResponseToDetailsMapper : Mapper<ResponseCard, PokemonDetails> {
+    override fun map(source: ResponseCard): PokemonDetails {
         return PokemonDetails(
             name = source.name,
             imageURL = source.images.large,

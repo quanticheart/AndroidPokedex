@@ -1,8 +1,8 @@
-package com.quanticheart.repository.user.mapper
+package com.quanticheart.repository.firestore.mapper
 
 import com.quanticheart.domain.model.user.NewUser
 import com.quanticheart.domain.model.user.User
-import com.quanticheart.repository.user.models.NewUserFirebasePayload
+import com.quanticheart.repository.firestore.models.NewUserFirebasePayload
 
 object NewUserFirebasePayloadMapper {
 

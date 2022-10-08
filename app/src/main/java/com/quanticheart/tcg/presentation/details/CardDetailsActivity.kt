@@ -7,6 +7,7 @@ import com.quanticheart.domain.model.ViewState
 import com.quanticheart.domain.model.pokemon.Pokemon
 import com.quanticheart.tcg.R
 import com.quanticheart.tcg.databinding.ActivityCardDetailBinding
+import com.quanticheart.tcg.observeStateLayout
 import com.quanticheart.tcg.presentation.details.constants.INTENT_KEY_DETAILS
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
@@ -18,12 +19,15 @@ class CardDetailsActivity : AppCompatActivity() {
     private val picasso: Picasso by inject()
     private val binding by lazy { ActivityCardDetailBinding.inflate(layoutInflater) }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) = binding.layout.run {
         super.onCreate(savedInstanceState)
         getSerializableExtra<Pokemon>(INTENT_KEY_DETAILS)?.let {
             setContentView(binding.root)
             observers()
-            binding.navigationBar.setBackToolbar()
+            navigationBar.setBackToolbar()
+            btnAddToColection.setOnClickListener {
+                viewModel.addToCollection()
+            }
             createTextToSpeech {
                 viewModel.getPokemon(it)
             }
@@ -33,8 +37,8 @@ class CardDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun observers() {
-        viewModel.pokemonResult.observe(this) {
+    private fun observers() = viewModel.run {
+        pokemonResult.observe(this@CardDetailsActivity) {
             when (it) {
                 is ViewState.Failure -> {
                     binding.flipper.showError(it.throwable.message)
@@ -43,12 +47,12 @@ class CardDetailsActivity : AppCompatActivity() {
                 }
                 ViewState.Loading -> binding.flipper.showLoading()
                 is ViewState.Success -> {
-                    binding.run {
+                    binding.layout.run {
                         name.text = it.data.name
-                        binding.navigationBar.title = it.data.name
+                        navigationBar.title = it.data.name
                         picasso.load(it.data.imageURL)
                             .placeholder(R.drawable.placeholder)
-                            .into(binding.image)
+                            .into(image)
 
                         description.text = it.data.description
 
@@ -57,6 +61,10 @@ class CardDetailsActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+
+        addToCollection.observeStateLayout(this@CardDetailsActivity, binding.flipper) {
+
         }
     }
 

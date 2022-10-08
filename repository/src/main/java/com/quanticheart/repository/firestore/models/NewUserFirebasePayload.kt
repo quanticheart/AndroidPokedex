@@ -1,4 +1,4 @@
-package com.quanticheart.repository.user.models
+package com.quanticheart.repository.firestore.models
 
 import com.google.firebase.firestore.Exclude
 import com.google.firebase.firestore.IgnoreExtraProperties

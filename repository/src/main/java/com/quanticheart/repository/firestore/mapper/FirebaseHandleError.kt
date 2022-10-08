@@ -1,5 +1,6 @@
-package com.quanticheart.repository.user.mapper
+package com.quanticheart.repository.firestore.mapper
 
+import android.content.Context
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuthException
 import com.quanticheart.repository.R
@@ -36,4 +37,9 @@ class FirebaseHandleError {
             else -> -1
         }
     }
+}
+
+internal fun <T> Context.handleError(e: Exception): Result<T> {
+    val intRes = FirebaseHandleError().map(e)
+    return Result.failure(Exception(getString(intRes)))
 }
