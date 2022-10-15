@@ -1,7 +1,7 @@
 package com.quanticheart.core.dialog
 
 import android.content.Context
-import com.quanticheart.core.base.BaseFragmentDialog
+import com.quanticheart.core.base.dialog.BaseFragmentDialog
 import com.quanticheart.core.databinding.LayoutLoadingBinding
 
 //

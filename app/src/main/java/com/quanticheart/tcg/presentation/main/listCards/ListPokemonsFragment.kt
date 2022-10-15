@@ -1,7 +1,7 @@
 package com.quanticheart.tcg.presentation.main.listCards
 
 import android.os.Bundle
-import com.quanticheart.core.base.BaseFragment
+import com.quanticheart.core.base.fragment.BaseFragment
 import com.quanticheart.core.extentions.startActivity
 import com.quanticheart.domain.model.ViewState
 import com.quanticheart.tcg.R

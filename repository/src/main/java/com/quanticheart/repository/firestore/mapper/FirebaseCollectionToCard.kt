@@ -1,7 +1,7 @@
 package com.quanticheart.repository.firestore.mapper
 
 import com.quanticheart.domain.model.pokemon.Card
-import com.quanticheart.repository.base.utils.Mapper
+import com.quanticheart.core.base.repository.utils.Mapper
 import com.quanticheart.repository.firestore.request.RequestInsertCard
 
 //

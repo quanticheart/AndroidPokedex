@@ -1,6 +1,6 @@
 package com.quanticheart.tcg.presentation.main.dashboard
 
-import com.quanticheart.core.base.BaseFragment
+import com.quanticheart.core.base.fragment.BaseFragment
 import com.quanticheart.core.extentions.toast
 import com.quanticheart.domain.model.ViewState
 import com.quanticheart.tcg.databinding.FragmentDashboardBinding

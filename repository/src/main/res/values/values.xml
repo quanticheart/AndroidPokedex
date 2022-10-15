@@ -18,4 +18,9 @@
     <string name="error_login_invalid_user_token">The user\'s credential is no longer valid. The user must sign in again.</string>
     <string name="error_login_default_error">Firebase Error</string>
     <string name="error_firebase_timeout">Timeout, try Again</string>
+
+    <string name="default_notification_channel_id">tcg_push_first_channel</string>
+    <string name="default_notification_channel_name">Canal de Noticias</string>
+    <string name="default_notification_channel_description">Canal de Noticias do TCG</string>
+
 </resources>

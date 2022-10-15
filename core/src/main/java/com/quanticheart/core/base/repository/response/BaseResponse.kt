@@ -1,4 +1,4 @@
-package com.quanticheart.repository.base.response
+package com.quanticheart.core.base.repository.response
 
 import com.google.gson.annotations.SerializedName
 

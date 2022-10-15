@@ -1,6 +1,6 @@
 package com.quanticheart.tcg.presentation.login.signup
 
-import com.quanticheart.core.base.BaseFragment
+import com.quanticheart.core.base.fragment.BaseFragment
 import com.quanticheart.core.dialog.msgDialog
 import com.quanticheart.tcg.databinding.FragmentSignUpBinding
 import com.quanticheart.tcg.goHome

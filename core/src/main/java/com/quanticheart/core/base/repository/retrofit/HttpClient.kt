@@ -1,4 +1,4 @@
-package com.quanticheart.repository.base.retrofit
+package com.quanticheart.core.base.repository.retrofit
 
 import retrofit2.Retrofit
 

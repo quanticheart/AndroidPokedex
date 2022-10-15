@@ -7,8 +7,8 @@ import com.quanticheart.domain.repository.AppRepository
 import com.quanticheart.domain.repository.CollectionRepository
 import com.quanticheart.domain.repository.PokemonRepository
 import com.quanticheart.domain.repository.UserRepository
-import com.quanticheart.repository.base.retrofit.HttpClient
-import com.quanticheart.repository.base.retrofit.RetrofitClient
+import com.quanticheart.core.base.repository.retrofit.HttpClient
+import com.quanticheart.core.base.repository.retrofit.RetrofitClient
 import com.quanticheart.repository.picasso.PicassoClient
 import com.quanticheart.repository.firestore.CollectionRepositoryImpl
 import com.quanticheart.repository.pokemon.PokemonEndPoints

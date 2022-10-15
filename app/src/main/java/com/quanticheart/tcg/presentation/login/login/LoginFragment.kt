@@ -1,7 +1,7 @@
 package com.quanticheart.tcg.presentation.login.login
 
 import androidx.navigation.fragment.findNavController
-import com.quanticheart.core.base.BaseFragment
+import com.quanticheart.core.base.fragment.BaseFragment
 import com.quanticheart.core.dialog.msgDialog
 import com.quanticheart.tcg.R
 import com.quanticheart.tcg.databinding.FragmentLoginBinding

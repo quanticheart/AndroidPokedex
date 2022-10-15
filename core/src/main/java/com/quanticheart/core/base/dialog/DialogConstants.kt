@@ -1,4 +1,4 @@
-package com.quanticheart.core.base
+package com.quanticheart.core.base.dialog
 
 object DialogConstants {
     const val TAG_DIALOG_SHOW = "Dialog Show"

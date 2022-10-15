@@ -1,6 +1,6 @@
-package com.quanticheart.repository.base.retrofit
+package com.quanticheart.core.base.repository.retrofit
 
-import com.quanticheart.repository.BuildConfig
+import com.quanticheart.core.BuildConfig
 
 //
 // Created by Jonn Alves on 05/08/22.

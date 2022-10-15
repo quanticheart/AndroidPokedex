@@ -1,6 +1,6 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 
-package com.quanticheart.core.base
+package com.quanticheart.core.base.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

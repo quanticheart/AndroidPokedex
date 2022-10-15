@@ -1,6 +1,6 @@
 package com.quanticheart.tcg.presentation.main.userCards
 
-import com.quanticheart.core.base.BaseFragment
+import com.quanticheart.core.base.fragment.BaseFragment
 import com.quanticheart.core.extentions.splashTime
 import com.quanticheart.tcg.databinding.FragmentUserCardsBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel

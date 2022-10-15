@@ -1,4 +1,4 @@
-package com.quanticheart.repository.base.retrofit.interceptor
+package com.quanticheart.core.base.repository.retrofit.interceptor
 
 import okhttp3.CacheControl
 import okhttp3.Interceptor

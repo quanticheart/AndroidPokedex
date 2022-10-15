@@ -1,6 +1,6 @@
 package com.quanticheart.repository.pokemon
 
-import com.quanticheart.repository.base.response.BaseResponse
+import com.quanticheart.core.base.repository.response.BaseResponse
 import com.quanticheart.repository.pokemon.responses.ResponseCard
 import retrofit2.Response
 import retrofit2.http.GET

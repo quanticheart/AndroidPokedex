@@ -12,7 +12,7 @@ fun Toolbar.setBackToolbar(title: String? = null) {
     context.supportActionBar?.setDisplayShowHomeEnabled(true)
     navigationIcon = AppCompatResources.getDrawable(context, R.drawable.ic_back_24)
     setNavigationOnClickListener {
-        context.onBackPressed()
+        context.onBackPressedDispatcher.onBackPressed()
     }
     title?.let {
         this.title = it

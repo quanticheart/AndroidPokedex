@@ -1,4 +1,4 @@
-package com.quanticheart.core.base
+package com.quanticheart.core.base.dialog
 
 import androidx.viewbinding.ViewBinding
 

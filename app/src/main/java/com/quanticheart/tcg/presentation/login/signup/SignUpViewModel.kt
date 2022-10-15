@@ -2,7 +2,7 @@ package com.quanticheart.tcg.presentation.login.signup
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.quanticheart.core.base.BaseViewModel
+import com.quanticheart.core.base.viewModel.BaseViewModel
 import com.quanticheart.core.extentions.runUseCaseCatching
 import com.quanticheart.core.extentions.viewModelScopeLaunch
 import com.quanticheart.domain.model.user.NewUser

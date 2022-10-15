@@ -1,4 +1,4 @@
-package com.quanticheart.core.base
+package com.quanticheart.core.base.dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.viewbinding.ViewBinding
+import com.quanticheart.core.base.fragment.Inflate
 import com.quanticheart.core.extentions.logI
 import com.quanticheart.core.extentions.toDp
 

@@ -15,16 +15,9 @@ android {
     }
 
     buildTypes {
-        debug{
-            buildConfigField "String", "baseUrl", "\"https://tcg.poketudo.com/api/\""
-            buildConfigField "String", "authKey", "\"authKey\""
-        }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "baseUrl", "\"https://tcg.poketudo.com/api/\""
-            buildConfigField "String", "authKey", "\"authKey\""
-            build
         }
     }
     compileOptions {
@@ -39,6 +32,7 @@ android {
 dependencies {
 
     implementation(project(":domain"))
+    implementation(project(":core"))
 
     implementation 'androidx.core:core-ktx:1.9.0'
 
