@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.quanticheart.core.extentions.*
 import com.quanticheart.domain.model.ViewState
 import com.quanticheart.domain.model.pokemon.Pokemon
+import com.quanticheart.tcg.INTENT_KEY_DETAILS
 import com.quanticheart.tcg.R
 import com.quanticheart.tcg.databinding.ActivityCardDetailBinding
 import com.quanticheart.tcg.observeStateLayout
-import com.quanticheart.tcg.presentation.details.constants.INTENT_KEY_DETAILS
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
