@@ -38,5 +38,6 @@
     <string name="signup_subtitle">Preencha os dados da sua conta</string>
     <string name="label_exit">SAIR</string>
     <string name="label_about">Sobre</string>
+    <string name="title_cards">Cards</string>
 
 </resources>

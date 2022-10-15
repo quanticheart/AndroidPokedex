@@ -21,7 +21,7 @@ class ListPokemonsFragment :
     private val picasso: Picasso by inject()
     override val viewModel: ListPokemonsViewModel by viewModel()
 
-    override fun view(binding: FragmentListPokemonsBinding): Unit = binding.run {
+    override fun view(binding: FragmentListPokemonsBinding): Unit = binding.layout.run {
         adapter = ListPokemonsAdapter(list, picasso, object : ListPokemonsAdapterClickListener {
             override fun click(pokemon: Pokemon) {
                 activity?.startActivity<CardDetailsActivity>(bundle = Bundle().apply {
@@ -34,7 +34,7 @@ class ListPokemonsFragment :
             }
         })
 
-        container.setTryReloadCallback {
+        binding.container.setTryReloadCallback {
             viewModel.getPokemons()
         }
 
