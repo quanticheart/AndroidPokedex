@@ -41,9 +41,9 @@ abstract class BaseFragment<viewModel : ViewModel, VB : ViewBinding>(private val
         _binding = null
     }
 
-    fun showLoading() = loading?.safeShow()
+    fun showLoading() = loading?.show()
 
-    fun hideLoading() = loading?.safeHide()
+    fun hideLoading() = loading?.dismiss()
 
     fun finish() = activity?.finish()
 }

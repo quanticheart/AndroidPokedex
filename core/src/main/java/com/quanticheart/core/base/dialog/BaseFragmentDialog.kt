@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
 import com.quanticheart.core.base.fragment.Inflate
 import com.quanticheart.core.extentions.logI
@@ -21,16 +22,9 @@ abstract class BaseFragmentDialog<VB : ViewBinding>(
     private val inflate: Inflate<VB>
 ) : DialogFragment(), OnDialogActions<VB> {
 
+    private lateinit var fm: FragmentManager
     private var _binding: VB? = null
     protected val binding get() = _binding!!
-
-    override fun onShow() {
-        this.javaClass.simpleName.logI(DialogConstants.TAG_DIALOG_SHOW)
-    }
-
-    override fun onHide() {
-        this.javaClass.simpleName.logI(DialogConstants.TAG_DIALOG_HIDE)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -79,26 +73,39 @@ abstract class BaseFragmentDialog<VB : ViewBinding>(
 
             setOnDismissListener {
                 onHide()
+                hideDialog()
             }
         }
     }
 
-    fun safeShow() {
+    fun show() {
         try {
             (mContext as AppCompatActivity?)?.supportFragmentManager?.let {
+                fm = it
                 show(it, mContext.javaClass.name)
-            } ?: run {
-
             }
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
-    fun safeHide() {
+    override fun dismiss() {
+        hideDialog()
+    }
+
+    private fun hideDialog() {
         try {
-            dismiss()
+            fm.beginTransaction().remove(this@BaseFragmentDialog)
+                .addToBackStack(null).commit()
         } catch (_: Exception) {
         }
+    }
+
+    override fun onShow() {
+        this.javaClass.simpleName.logI(DialogConstants.TAG_DIALOG_SHOW)
+    }
+
+    override fun onHide() {
+        this.javaClass.simpleName.logI(DialogConstants.TAG_DIALOG_HIDE)
     }
 }

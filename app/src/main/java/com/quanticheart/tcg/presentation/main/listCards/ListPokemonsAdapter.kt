@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso
 class ListPokemonsAdapter(
     recyclerView: RecyclerView,
     private val picasso: Picasso,
-    private val clickListener: (Pokemon) -> Unit
+    private val clickListener: ListPokemonsAdapterClickListener
 ) : RecyclerView.Adapter<ListPokemonsAdapter.PokemonViewHolder>() {
 
     private var pokemons: List<Pokemon> = arrayListOf()
@@ -49,7 +49,12 @@ class ListPokemonsAdapter(
             .placeholder(R.drawable.placeholder)
             .into(holder.binding.ivPokemon)
         holder.binding.root.setOnClickListener {
-            clickListener(pokemon)
+            clickListener.click(pokemon)
+        }
+
+        holder.binding.root.setOnLongClickListener {
+            clickListener.longClick(pokemon)
+            false
         }
     }
 }
