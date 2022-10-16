@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.quanticheart.core.extentions.runUseCaseCatching
 import com.quanticheart.core.extentions.viewModelScopeLaunch
 import com.quanticheart.domain.model.ViewState
-import com.quanticheart.domain.model.pokemon.Pokemon
 import com.quanticheart.domain.model.pokemon.PokemonDetails
 import com.quanticheart.domain.usecase.pokemon.DeleteCardCollectionUseCase
 import com.quanticheart.domain.usecase.pokemon.GetCardUseCase
@@ -20,7 +19,7 @@ class CardDetailsViewModel(
     private val deleteCardUseCase: DeleteCardCollectionUseCase,
 ) : ViewModel() {
 
-    private lateinit var pokemon: Pokemon
+    private lateinit var pokemon: PokemonDetails
 
     private val _pokemonResult = MutableLiveData<ViewState<PokemonDetails>>()
     val pokemonResult: LiveData<ViewState<PokemonDetails>> = _pokemonResult
@@ -31,21 +30,23 @@ class CardDetailsViewModel(
     private val _statusCollection = MutableLiveData<Boolean>()
     val statusCollection: LiveData<Boolean> = _statusCollection
 
+    private val _reloadCollectionList = MutableLiveData<Unit>()
+    val reloadCollectionList: LiveData<Unit> = _reloadCollectionList
+
     private val _error = MutableLiveData<Throwable>()
     val errorVerifyCollection: LiveData<Throwable> = _error
 
-    fun getPokemon(pokemon: Pokemon) {
-        this.pokemon = pokemon
+    fun getPokemon(id: String) {
         _pokemonResult.postValue(ViewState.Loading)
         viewModelScopeLaunch {
-            verifyStatusCollection(pokemon)
-            loadPokemon(pokemon)
+            verifyStatusCollection(id)
+            loadPokemon(id)
         }
     }
 
-    private suspend fun verifyStatusCollection(pokemon: Pokemon) {
+    private suspend fun verifyStatusCollection(id: String) {
         runUseCaseCatching {
-            selectCardUseCase(pokemon.id)
+            selectCardUseCase(id)
         }.onSuccess {
             _statusCollection.postValue(it.status)
         }.onFailure {
@@ -53,11 +54,11 @@ class CardDetailsViewModel(
         }
     }
 
-    private suspend fun loadPokemon(pokemon: Pokemon) {
-        this.pokemon = pokemon
+    private suspend fun loadPokemon(id: String) {
         runUseCaseCatching {
-            getPokemonTcgDetailsUseCase(pokemon.id)
+            getPokemonTcgDetailsUseCase(id)
         }.onSuccess {
+            pokemon = it
             _pokemonResult.postValue(ViewState.Success(it))
         }.onFailure {
             _pokemonResult.postValue(ViewState.Failure(it))
@@ -80,6 +81,7 @@ class CardDetailsViewModel(
         }.onSuccess {
             if (it) _statusCollection.postValue(true)
             _collectionUpdate.postValue(ViewState.Success(Unit))
+            _reloadCollectionList.postValue(Unit)
         }.onFailure {
             _collectionUpdate.postValue(ViewState.Failure(it))
         }
@@ -91,6 +93,7 @@ class CardDetailsViewModel(
         }.onSuccess {
             if (it) _statusCollection.postValue(false)
             _collectionUpdate.postValue(ViewState.Success(Unit))
+            _reloadCollectionList.postValue(Unit)
         }.onFailure {
             _collectionUpdate.postValue(ViewState.Failure(it))
         }

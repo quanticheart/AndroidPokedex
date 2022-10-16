@@ -42,5 +42,7 @@
     <string name="msg_collection_updated">Coleção atualizada</string>
     <string name="label_remove">Remover</string>
     <string name="label_add">Adicionar</string>
+    <string name="label_collection">Coleção</string>
+    <string name="msg_add_cards">Adicione cards a coleção</string>
 
 </resources>

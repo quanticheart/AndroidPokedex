@@ -1,9 +1,9 @@
 package com.quanticheart.tcg.presentation.main.listCards
 
 import com.quanticheart.core.base.fragment.BaseFragment
+import com.quanticheart.core.extentions.setRefreshListener
 import com.quanticheart.domain.model.ViewState
 import com.quanticheart.domain.model.pokemon.Pokemon
-import com.quanticheart.tcg.R
 import com.quanticheart.tcg.databinding.FragmentListPokemonsBinding
 import com.quanticheart.tcg.goDetails
 import com.quanticheart.tcg.goDetailsDialog
@@ -21,7 +21,7 @@ class ListPokemonsFragment :
     override fun view(binding: FragmentListPokemonsBinding): Unit = binding.layout.run {
         adapter = ListPokemonsAdapter(list, picasso, object : ListPokemonsAdapterClickListener {
             override fun click(pokemon: Pokemon) {
-                activity?.goDetails(pokemon)
+                activity?.goDetails(pokemon.id)
             }
 
             override fun longClick(pokemon: Pokemon) {
@@ -33,15 +33,8 @@ class ListPokemonsFragment :
             viewModel.getPokemons()
         }
 
-        refresh.apply {
-            setColorSchemeResources(
-                R.color.colorBgButton,
-                R.color.colorBgButtonStroke
-            )
-            setOnRefreshListener {
-                viewModel.getPokemons()
-                this.isRefreshing = false
-            }
+        refresh.setRefreshListener {
+            viewModel.getPokemons()
         }
     }
 

@@ -24,9 +24,9 @@ fun Activity.goHome() = startActivity<MainActivity>()
 
 fun Activity.goLogin() = startActivity<LoginActivity>()
 
-fun Activity.goDetails(pokemon: Pokemon) =
+fun Activity.goDetails(id: String) =
     startActivity<CardDetailsActivity>(bundle = Bundle().apply {
-        putSerializable(INTENT_KEY_DETAILS, pokemon)
+        putSerializable(INTENT_KEY_DETAILS, id)
     })
 
 fun Activity.goDetailsDialog(picasso: Picasso, pokemon: Pokemon) =

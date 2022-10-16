@@ -4,10 +4,10 @@ import com.quanticheart.core.base.activity.BaseActivity
 import com.quanticheart.core.dialog.msgDialog
 import com.quanticheart.core.extentions.*
 import com.quanticheart.domain.model.ViewState
-import com.quanticheart.domain.model.pokemon.Pokemon
 import com.quanticheart.tcg.INTENT_KEY_DETAILS
 import com.quanticheart.tcg.R
 import com.quanticheart.tcg.databinding.ActivityCardDetailBinding
+import com.quanticheart.tcg.presentation.main.userCards.reloadListCollection
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,7 +19,7 @@ class CardDetailsActivity :
     private val picasso: Picasso by inject()
 
     override fun view(binding: ActivityCardDetailBinding) = binding.layout.run {
-        getSerializableExtra<Pokemon>(INTENT_KEY_DETAILS)?.let {
+        intent.extras?.getString(INTENT_KEY_DETAILS)?.let {
             navigationBar.setBackToolbar()
             btnAddToColection.setOnClickListener {
                 viewModel.collectionUpdate()
@@ -77,6 +77,10 @@ class CardDetailsActivity :
             binding.layout.btnAddToColection.text =
                 if (it == true) getString(R.string.label_remove)
                 else getString(R.string.label_add)
+        }
+
+        reloadCollectionList.observe(this@CardDetailsActivity) {
+            reloadListCollection()
         }
 
         errorVerifyCollection.observe(this@CardDetailsActivity) {

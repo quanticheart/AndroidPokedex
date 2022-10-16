@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.quanticheart.core.extentions.setGridLayout
 import com.quanticheart.domain.model.pokemon.Pokemon
 import com.quanticheart.tcg.R
-import com.quanticheart.tcg.databinding.PokemonListItemBinding
+import com.quanticheart.tcg.databinding.ItemPokemonCardBinding
 import com.squareup.picasso.Picasso
 
 class ListPokemonsAdapter(
@@ -24,12 +24,12 @@ class ListPokemonsAdapter(
         }
     }
 
-    inner class PokemonViewHolder(val binding: PokemonListItemBinding) :
+    inner class PokemonViewHolder(val binding: ItemPokemonCardBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
         return PokemonViewHolder(
-            PokemonListItemBinding.inflate(
+            ItemPokemonCardBinding.inflate(
                 LayoutInflater.from(parent.context), parent,
                 false
             )

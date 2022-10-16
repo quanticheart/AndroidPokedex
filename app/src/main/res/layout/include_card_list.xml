@@ -25,7 +25,7 @@
             android:nestedScrollingEnabled="true"
             tools:itemCount="12"
             tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:listitem="@layout/pokemon_list_item"
+            tools:listitem="@layout/item_pokemon_card"
             tools:spanCount="3" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

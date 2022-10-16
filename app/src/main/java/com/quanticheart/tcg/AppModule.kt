@@ -16,7 +16,7 @@ val presentationModules = module {
     viewModel { SignUpViewModel(get()) }
 
     viewModel { DashboardViewModel(get(), get()) }
-    viewModel { UserCardsViewModel() }
+    viewModel { UserCardsViewModel(get()) }
     viewModel { ListPokemonsViewModel(getFirstGenerationPokemonsTcgUseCase = get()) }
     viewModel {
         CardDetailsViewModel(
