@@ -1,7 +1,6 @@
 package com.quanticheart.tcg.presentation.details
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.quanticheart.core.base.activity.BaseActivity
 import com.quanticheart.core.extentions.*
 import com.quanticheart.domain.model.ViewState
 import com.quanticheart.domain.model.pokemon.Pokemon
@@ -13,17 +12,14 @@ import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CardDetailsActivity : AppCompatActivity() {
+class CardDetailsActivity :
+    BaseActivity<CardDetailsViewModel, ActivityCardDetailBinding>(ActivityCardDetailBinding::inflate) {
 
-    private val viewModel: CardDetailsViewModel by viewModel()
+    override val viewModel: CardDetailsViewModel by viewModel()
     private val picasso: Picasso by inject()
-    private val binding by lazy { ActivityCardDetailBinding.inflate(layoutInflater) }
 
-    override fun onCreate(savedInstanceState: Bundle?) = binding.layout.run {
-        super.onCreate(savedInstanceState)
+    override fun view(binding: ActivityCardDetailBinding) = binding.layout.run {
         getSerializableExtra<Pokemon>(INTENT_KEY_DETAILS)?.let {
-            setContentView(binding.root)
-            observers()
             navigationBar.setBackToolbar()
             btnAddToColection.setOnClickListener {
                 viewModel.addToCollection()
@@ -37,7 +33,7 @@ class CardDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun observers() = viewModel.run {
+    override fun viewModel(viewModel: CardDetailsViewModel) = viewModel.run {
         pokemonResult.observe(this@CardDetailsActivity) {
             when (it) {
                 is ViewState.Failure -> {
