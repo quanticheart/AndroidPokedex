@@ -23,7 +23,6 @@ val presentationModules = module {
             getPokemonTcgDetailsUseCase = get(),
             get(),
             get(),
-            get(),
             get()
         )
     }

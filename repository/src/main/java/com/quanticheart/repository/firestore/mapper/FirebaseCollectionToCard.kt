@@ -9,7 +9,7 @@ import com.quanticheart.repository.firestore.request.RequestInsertCard
 //
 class FirebaseCollectionToCard : Mapper<RequestInsertCard?, List<Card>> {
     override fun map(source: RequestInsertCard?): List<Card> {
-        return source?.list?.mapIndexed { index, insertCard ->
+        return source?.cards?.mapIndexed { index, insertCard ->
             val card = Card()
             card.position = index
             card.id = insertCard.cardID

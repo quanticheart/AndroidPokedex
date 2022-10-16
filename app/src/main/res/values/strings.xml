@@ -39,5 +39,8 @@
     <string name="label_exit">SAIR</string>
     <string name="label_about">Sobre</string>
     <string name="title_cards">Cards</string>
+    <string name="msg_collection_updated">Coleção atualizada</string>
+    <string name="label_remove">Remover</string>
+    <string name="label_add">Adicionar</string>
 
 </resources>

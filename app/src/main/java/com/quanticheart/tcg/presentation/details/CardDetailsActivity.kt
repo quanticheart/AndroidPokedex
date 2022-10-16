@@ -1,13 +1,13 @@
 package com.quanticheart.tcg.presentation.details
 
 import com.quanticheart.core.base.activity.BaseActivity
+import com.quanticheart.core.dialog.msgDialog
 import com.quanticheart.core.extentions.*
 import com.quanticheart.domain.model.ViewState
 import com.quanticheart.domain.model.pokemon.Pokemon
 import com.quanticheart.tcg.INTENT_KEY_DETAILS
 import com.quanticheart.tcg.R
 import com.quanticheart.tcg.databinding.ActivityCardDetailBinding
-import com.quanticheart.tcg.observeStateLayout
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -22,7 +22,7 @@ class CardDetailsActivity :
         getSerializableExtra<Pokemon>(INTENT_KEY_DETAILS)?.let {
             navigationBar.setBackToolbar()
             btnAddToColection.setOnClickListener {
-                viewModel.addToCollection()
+                viewModel.collectionUpdate()
             }
             createTextToSpeech {
                 viewModel.getPokemon(it)
@@ -59,8 +59,30 @@ class CardDetailsActivity :
             }
         }
 
-        addToCollection.observeStateLayout(this@CardDetailsActivity, binding.flipper) {
+        collectionUpdate.observe(this@CardDetailsActivity) {
+            when (it) {
+                is ViewState.Failure -> {
+                    toast(it.throwable)
+                    binding.flipper.showLayout()
+                }
+                is ViewState.Loading -> binding.flipper.showLoading()
+                is ViewState.Success -> {
+                    binding.flipper.showLayout()
+                    toast(getString(R.string.msg_collection_updated))
+                }
+            }
+        }
 
+        statusCollection.observe(this@CardDetailsActivity) {
+            binding.layout.btnAddToColection.text =
+                if (it == true) getString(R.string.label_remove)
+                else getString(R.string.label_add)
+        }
+
+        errorVerifyCollection.observe(this@CardDetailsActivity) {
+            msgDialog(it.message ?: "Error") {
+                finish()
+            }
         }
     }
 

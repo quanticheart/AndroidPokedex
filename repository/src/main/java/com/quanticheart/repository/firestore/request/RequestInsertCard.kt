@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class RequestInsertCard(
     @SerializedName("cards")
-    val list: ArrayList<InsertCard>? = null,
+    val cards: ArrayList<InsertCard>? = null,
 )
 
 data class InsertCard(

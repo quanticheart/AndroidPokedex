@@ -7,6 +7,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.Source
 import com.quanticheart.domain.model.pokemon.Card
+import com.quanticheart.domain.model.pokemon.CardCollection
 import com.quanticheart.domain.repository.CollectionRepository
 import com.quanticheart.repository.firestore.mapper.FirebaseCollectionToCard
 import com.quanticheart.repository.firestore.mapper.handleError
@@ -48,7 +49,7 @@ class CollectionRepositoryImpl(
         }
     }
 
-    override suspend fun findCollectionBy(id: String): Result<Card> {
+    override suspend fun findCollectionBy(id: String): Result<CardCollection> {
         return try {
             select(id)
         } catch (e: Exception) {
@@ -106,7 +107,7 @@ class CollectionRepositoryImpl(
         }
     }
 
-    private suspend fun select(cardID: String): Result<Card> {
+    private suspend fun select(cardID: String): Result<CardCollection> {
         return mAuth.currentUser?.let {
             val data = fireStore.collection(database)
                 .document(it.uid)
@@ -114,11 +115,12 @@ class CollectionRepositoryImpl(
                 .await()
                 .toObject(RequestInsertCard::class.java)
 
-            FirebaseCollectionToCard().map(data).filter { card -> card.id == cardID }
-                .getOrNull(0)?.let { sendCard ->
-                    Result.success(sendCard)
-                } ?: run {
-                Result.failure(Throwable("Error"))
+            FirebaseCollectionToCard().map(data).filter { card ->
+                card.id == cardID
+            }.getOrNull(0)?.let { sendCard ->
+                Result.success(CardCollection(true, sendCard))
+            } ?: run {
+                Result.success(CardCollection())
             }
 
 //            FirebaseFirestore.setLoggingEnabled(true)
