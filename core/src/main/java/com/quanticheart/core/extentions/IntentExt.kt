@@ -12,15 +12,14 @@ inline fun <reified T> Activity.startActivity(bundle: Bundle? = null) {
     startActivity(intent)
 }
 
-@Suppress("UNCHECKED_CAST")
-fun <T> Activity.getSerializableExtra(key: String): T? {
-    return try {
-        intent.getSerializableExtra(key)?.let {
-            it as T
-        } ?: run {
-            null
-        }
-    } catch (e: Exception) {
-        null
+fun Activity.shareText(cardName: String) {
+    val intent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_SUBJECT, "Subject Here")
+        putExtra(
+            Intent.EXTRA_TEXT,
+            "https://www.ligapokemon.com.br/?view=cards/card&card=$cardName%20(1%2F102)&ed=BS"
+        )
     }
+    startActivity(Intent.createChooser(intent, "Card $cardName"))
 }

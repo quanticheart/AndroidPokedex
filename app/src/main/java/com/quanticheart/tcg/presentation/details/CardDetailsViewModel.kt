@@ -19,7 +19,7 @@ class CardDetailsViewModel(
     private val deleteCardUseCase: DeleteCardCollectionUseCase,
 ) : ViewModel() {
 
-    private lateinit var pokemon: PokemonDetails
+    lateinit var pokemon: PokemonDetails
 
     private val _pokemonResult = MutableLiveData<ViewState<PokemonDetails>>()
     val pokemonResult: LiveData<ViewState<PokemonDetails>> = _pokemonResult

@@ -1,5 +1,8 @@
 package com.quanticheart.tcg.presentation.details
 
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import com.quanticheart.core.base.activity.BaseActivity
 import com.quanticheart.core.dialog.msgDialog
 import com.quanticheart.core.extentions.*
@@ -37,11 +40,15 @@ class CardDetailsActivity :
         pokemonResult.observe(this@CardDetailsActivity) {
             when (it) {
                 is ViewState.Failure -> {
+                    showMenu(false)
                     binding.flipper.showError(it.throwable.message)
                     toast(it.throwable)
                     finish()
                 }
-                ViewState.Loading -> binding.flipper.showLoading()
+                ViewState.Loading -> {
+                    showMenu(false)
+                    binding.flipper.showLoading()
+                }
                 is ViewState.Success -> {
                     binding.layout.run {
                         name.text = it.data.name
@@ -55,6 +62,7 @@ class CardDetailsActivity :
                         speak(it.data.description)
                         binding.flipper.showLayout()
                     }
+                    showMenu(true)
                 }
             }
         }
@@ -90,8 +98,37 @@ class CardDetailsActivity :
         }
     }
 
+    private fun share() {
+        viewModel.pokemon.let {
+            shareText(it.name)
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         stopTextToSpeech()
+    }
+
+    private var menu: Menu? = null
+    private fun showMenu(status: Boolean) {
+        menu?.apply {
+            findItem(R.id.share)?.let {
+                it.isVisible = status
+            }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menu?.clear()
+        this.menu = menu
+        MenuInflater(this).inflate(R.menu.details_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.share -> share()
+        }
+        return false
     }
 }
