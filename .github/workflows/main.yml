@@ -31,7 +31,13 @@ jobs:
         with:
           name: mapping.txt
           path: app/build/outputs/mapping/proRelease/mapping.txt
-
+      - name: Upload artifact to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{secrets.FIREBASE_APP_ID}}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          groups: testers
+          file: app/build/outputs/apk/pro/release/release.apk
 #  deploy-play-store:
 #    needs: [ build ]
 #    runs-on: ubuntu-latest
