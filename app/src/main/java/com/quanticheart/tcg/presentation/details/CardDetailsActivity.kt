@@ -7,6 +7,7 @@ import com.quanticheart.core.base.activity.BaseActivity
 import com.quanticheart.core.dialog.msgDialog
 import com.quanticheart.core.extentions.*
 import com.quanticheart.domain.model.ViewState
+import com.quanticheart.domain.model.pokemon.PokemonDetails
 import com.quanticheart.tcg.INTENT_KEY_DETAILS
 import com.quanticheart.tcg.R
 import com.quanticheart.tcg.databinding.ActivityCardDetailBinding
@@ -50,19 +51,10 @@ class CardDetailsActivity :
                     binding.flipper.showLoading()
                 }
                 is ViewState.Success -> {
-                    binding.layout.run {
-                        name.text = it.data.name
-                        navigationBar.title = it.data.name
-                        picasso.load(it.data.imageURL)
-                            .placeholder(R.drawable.placeholder)
-                            .into(image)
-
-                        description.text = it.data.description
-
-                        speak(it.data.description)
-                        binding.flipper.showLayout()
-                        FirebaseAnalytics.getInstance(baseContext).logEvent(it.data.name, null)
-                    }
+                    initView(it.data)
+                    speak(it.data.description)
+                    binding.flipper.showLayout()
+                    FirebaseAnalytics.getInstance(baseContext).logEvent(it.data.name, null)
                     showMenu(true)
                 }
             }
@@ -97,6 +89,22 @@ class CardDetailsActivity :
                 finish()
             }
         }
+    }
+
+    private fun initView(data: PokemonDetails) = binding.layout.run {
+        picasso.load(data.imageURL)
+            .placeholder(R.drawable.placeholder)
+            .into(image)
+
+        name.text = data.name
+        navigationBar.title = data.name
+
+        number.text = data.number
+        artist.text = data.artist
+        rarity.text = data.rarity
+        type.text = data.type
+
+        description.text = data.description
     }
 
     private fun share() {

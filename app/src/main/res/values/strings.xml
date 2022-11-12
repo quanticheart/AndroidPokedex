@@ -50,5 +50,9 @@
     <string name="label_recover">Recuperar</string>
     <string name="label_signin">Cadastrar</string>
     <string name="msg_logout">Deseja sair?</string>
+    <string name="label_number">Numero</string>
+    <string name="label_artist">Artista</string>
+    <string name="label_rarity">Raridade</string>
+    <string name="label_type">Tipo</string>
 
 </resources>

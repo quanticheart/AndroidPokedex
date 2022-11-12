@@ -71,6 +71,118 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Standard" />
 
+            <TextView
+                android:id="@+id/numberLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/label_number"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guide1"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
+
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/numberLabel"
+                app:layout_constraintStart_toEndOf="@+id/numberLabel"
+                app:layout_constraintTop_toTopOf="@+id/numberLabel"
+                tools:text="default" />
+
+            <TextView
+                android:id="@+id/artistLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/label_artist"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guide1"
+                app:layout_constraintTop_toBottomOf="@+id/numberLabel" />
+
+            <TextView
+                android:id="@+id/artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/artistLabel"
+                app:layout_constraintStart_toEndOf="@+id/artistLabel"
+                app:layout_constraintTop_toTopOf="@+id/artistLabel"
+                tools:text="default" />
+
+            <TextView
+                android:id="@+id/view1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/label_rarity"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guide1"
+                app:layout_constraintTop_toBottomOf="@+id/artistLabel" />
+
+            <TextView
+                android:id="@+id/rarity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/view1"
+                app:layout_constraintStart_toEndOf="@+id/view1"
+                app:layout_constraintTop_toTopOf="@+id/view1"
+                tools:text="default" />
+
+            <TextView
+                android:id="@+id/view2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/label_type"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guide1"
+                app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/view2"
+                app:layout_constraintStart_toEndOf="@+id/view2"
+                app:layout_constraintTop_toTopOf="@+id/view2"
+                tools:text="default" />
+
             <View
                 android:id="@+id/viewContent"
                 android:layout_width="match_parent"
