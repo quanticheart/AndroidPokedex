@@ -23,28 +23,33 @@ def getCurrentGitBranch() {
 }
 
 task publishDebugPro(type: Delete, group: "publish") {
-    dependsOn("assembleDebug")
+    dependsOn("assembleProDebug")
     dependsOn("appDistributionUploadProDebug")
 }
 
 task publishDebugFree(type: Delete, group: "publish") {
-    dependsOn("assembleDebug")
+    dependsOn("assembleFreeDebug")
     dependsOn("appDistributionUploadFreeDebug")
 }
 
 task publishReleasePro(type: Delete, group: "publish") {
-    dependsOn("assemblePro")
+    dependsOn("assembleProRelease")
     dependsOn("appDistributionUploadProRelease")
 }
 
 task publishReleaseFree(type: Delete, group: "publish") {
-    dependsOn("assembleFree")
+    dependsOn("assembleFreeRelease")
     dependsOn("appDistributionUploadFreeRelease")
 }
 
 def keystorePropertiesFile = rootProject.file("app/keystore.properties")
 def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+final String sysKeyAlias = System.getenv('KEY_ALIAS') ?: keystoreProperties['keyAlias']
+final String sysKeyPassword = System.getenv('KEY_PASSWORD') ?: keystoreProperties['keyPassword']
+final String sysStorePassword = System.getenv('KEY_STORE_PASSWORD') ?: keystoreProperties['storePassword']
+final sysStoreFile = System.getenv('KEY_STORE_FILE') ?: file(keystoreProperties['storeFile'])
 
 android {
     compileSdk 33
@@ -66,16 +71,16 @@ android {
 
     signingConfigs {
         debug {
-            keyAlias 'debug'
-            keyPassword '123456'
-            storeFile file('key/debugkey')
-            storePassword '123456'
-        }
-        release {
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
             storeFile file(keystoreProperties['storeFile'])
             storePassword keystoreProperties['storePassword']
+        }
+        release {
+            keyAlias sysKeyAlias
+            keyPassword sysKeyPassword
+            storeFile sysStoreFile
+            storePassword sysStorePassword
         }
     }
 
