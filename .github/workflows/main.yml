@@ -11,7 +11,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Generate Release PRO APK
         run: ./gradlew assembleProRelease
       - name: Sign PRO APK
@@ -39,7 +38,6 @@ jobs:
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers
           file: app/build/outputs/apk/pro/release/app-pro-release-unsigned-signed.apk
-
       - name: Generate Release FREE APK
         run: ./gradlew assembleFreeRelease
       - name: Sign FREE APK
@@ -66,7 +64,6 @@ jobs:
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers
           file: app/build/outputs/apk/free/release/app-free-release-unsigned-signed.apk
-
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
