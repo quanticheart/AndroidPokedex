@@ -46,4 +46,6 @@ abstract class BaseFragment<viewModel : ViewModel, VB : ViewBinding>(private val
     fun hideLoading() = loading?.dismiss()
 
     fun finish() = activity?.finish()
+
+    fun onBackPressed() = activity?.onBackPressedDispatcher?.onBackPressed()
 }

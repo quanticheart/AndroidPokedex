@@ -2,6 +2,7 @@ package com.quanticheart.tcg.presentation.login.signup
 
 import com.quanticheart.core.base.fragment.BaseFragment
 import com.quanticheart.core.dialog.msgDialog
+import com.quanticheart.core.extentions.setBackToolbar
 import com.quanticheart.tcg.databinding.FragmentSignUpBinding
 import com.quanticheart.tcg.goHome
 import com.quanticheart.tcg.goTerms
@@ -14,6 +15,8 @@ class SignUpFragment :
     override val viewModel: SignUpViewModel by viewModel()
 
     override fun view(binding: FragmentSignUpBinding): Unit = binding.run {
+        navigationBar.setBackToolbar()
+
         tvTerms.setOnClickListener {
             activity?.goTerms()
         }

@@ -2,9 +2,11 @@ package com.quanticheart.core.extentions
 
 import android.os.Bundle
 import androidx.core.view.forEach
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.lang.ref.WeakReference
@@ -35,3 +37,5 @@ fun BottomNavigationView.setupNavigation(navController: NavController) {
             }
         })
 }
+
+fun Fragment.navigateTo(idToNavigate: Int) = findNavController().navigate(idToNavigate)

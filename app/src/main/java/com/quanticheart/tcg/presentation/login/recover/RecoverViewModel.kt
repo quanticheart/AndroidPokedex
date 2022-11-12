@@ -1,27 +1,26 @@
-package com.quanticheart.tcg.presentation.login.login
+package com.quanticheart.tcg.presentation.login.recover
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.quanticheart.core.base.viewModel.BaseViewModel
 import com.quanticheart.core.extentions.runUseCaseCatching
 import com.quanticheart.core.extentions.viewModelScopeLaunch
-import com.quanticheart.domain.model.user.Credentials
-import com.quanticheart.domain.usecase.user.LoginUseCase
+import com.quanticheart.domain.usecase.user.RecoverPasswordUseCase
 
-class LoginViewModel(
-    private val loginUseCase: LoginUseCase
+class RecoverViewModel(
+    private val recoverPasswordUseCase: RecoverPasswordUseCase
 ) : BaseViewModel() {
 
-    private val _success = MutableLiveData<Boolean>()
-    val success: LiveData<Boolean> = _success
+    private val _success = MutableLiveData<String>()
+    val success: LiveData<String> = _success
 
-    fun doLogin(email: String, password: String) {
+    fun recover(email: String) {
         showLoad()
         viewModelScopeLaunch {
             runUseCaseCatching {
-                loginUseCase(Credentials(email, password))
+                recoverPasswordUseCase(email)
             }.onSuccess {
-                _success.postValue(true)
+                _success.postValue(it)
             }.onFailure {
                 it.message.showError()
             }

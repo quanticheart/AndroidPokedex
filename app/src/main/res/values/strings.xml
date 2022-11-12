@@ -47,5 +47,7 @@
     <string name="label_share">Compartilhar</string>
     <string name="banner">banner</string>
     <string name="fiap_logo">fiap logo</string>
+    <string name="label_recover">Recuperar</string>
+    <string name="label_signin">Cadastrar</string>
 
 </resources>

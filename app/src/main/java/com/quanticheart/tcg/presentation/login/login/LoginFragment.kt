@@ -1,8 +1,8 @@
 package com.quanticheart.tcg.presentation.login.login
 
-import androidx.navigation.fragment.findNavController
 import com.quanticheart.core.base.fragment.BaseFragment
 import com.quanticheart.core.dialog.msgDialog
+import com.quanticheart.core.extentions.navigateTo
 import com.quanticheart.tcg.R
 import com.quanticheart.tcg.databinding.FragmentLoginBinding
 import com.quanticheart.tcg.goHome
@@ -15,11 +15,11 @@ class LoginFragment :
 
     override fun view(binding: FragmentLoginBinding): Unit = binding.run {
         tvResetPassword.setOnClickListener {
-            viewModel.doLogin(email.text, password.text)
+            navigateTo(R.id.action_loginFragment_to_recoverFragment)
         }
 
         tvNewAccount.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
+            navigateTo(R.id.action_loginFragment_to_signUpFragment)
         }
 
         btLogin.setOnClickListener {

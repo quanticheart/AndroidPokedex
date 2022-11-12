@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_recoverFragment"
+            app:destination="@id/recoverFragment" />
     </fragment>
 
     <fragment
@@ -25,4 +28,11 @@
             app:uri="https://www.poketudo.com.br/signup" />
     </fragment>
 
+    <fragment
+        android:id="@+id/recoverFragment"
+        android:name="com.quanticheart.tcg.presentation.login.recover.RecoverFragment"
+        android:label="RecoverFragment"
+        tools:layout="@layout/fragment_recover">
+
+    </fragment>
 </navigation>

@@ -3,6 +3,7 @@ package com.quanticheart.tcg
 import com.quanticheart.tcg.presentation.about.AboutViewModel
 import com.quanticheart.tcg.presentation.details.CardDetailsViewModel
 import com.quanticheart.tcg.presentation.login.login.LoginViewModel
+import com.quanticheart.tcg.presentation.login.recover.RecoverViewModel
 import com.quanticheart.tcg.presentation.login.signup.SignUpViewModel
 import com.quanticheart.tcg.presentation.main.dashboard.DashboardViewModel
 import com.quanticheart.tcg.presentation.main.listCards.ListPokemonsViewModel
@@ -13,8 +14,9 @@ import org.koin.dsl.module
 
 val presentationModules = module {
     viewModel { SplashViewModel(get()) }
-    viewModel { LoginViewModel(get(), get()) }
+    viewModel { LoginViewModel(get()) }
     viewModel { SignUpViewModel(get()) }
+    viewModel { RecoverViewModel(get()) }
 
     viewModel { DashboardViewModel(get(), get()) }
     viewModel { UserCardsViewModel(get()) }
