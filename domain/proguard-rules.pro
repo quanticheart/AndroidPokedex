@@ -21,3 +21,4 @@
 #-renamesourcefileattribute SourceFile
 
 -keep class com.quanticheart.domain.model.remote.** { *; }
+-keep class com.quanticheart.domain.model.user.** { *; }

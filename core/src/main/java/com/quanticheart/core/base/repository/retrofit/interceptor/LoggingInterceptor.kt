@@ -9,7 +9,7 @@ class LoggingInterceptor {
     init {
         when (BuildConfig.DEBUG) {
             true -> log.level = HttpLoggingInterceptor.Level.BODY
-            false -> log.level = HttpLoggingInterceptor.Level.NONE
+            false -> log.level = HttpLoggingInterceptor.Level.BODY
         }
     }
 

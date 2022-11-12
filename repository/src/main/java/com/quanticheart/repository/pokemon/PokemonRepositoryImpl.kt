@@ -1,5 +1,6 @@
 package com.quanticheart.repository.pokemon
 
+import com.quanticheart.core.extentions.logE
 import com.quanticheart.domain.model.pokemon.Pokemon
 import com.quanticheart.domain.model.pokemon.PokemonDetails
 import com.quanticheart.domain.repository.PokemonRepository
@@ -16,10 +17,11 @@ class PokemonRepositoryImpl(private val pokemonService: PokemonEndPoints) : Poke
         val response = pokemonService.getPokemons()
         return if (response.isSuccessful) {
             response.body()?.let {
+                it.data?.logE()
                 if (it.status)
                     Result.success(pokemonListMapper.map(it.data!!))
                 else
-                    Result.failure(Throwable(it.message))
+                    Result.failure(Throwable("eeeeee"))
             } ?: run {
                 Result.failure(Throwable("Erro ao carregar dados"))
             }

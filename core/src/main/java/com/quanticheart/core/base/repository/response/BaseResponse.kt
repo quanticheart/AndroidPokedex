@@ -14,4 +14,8 @@ class BaseResponse<T> {
 
     @SerializedName("data")
     var data: T? = null
+
+    override fun toString(): String {
+        return "status = $status"
+    }
 }
