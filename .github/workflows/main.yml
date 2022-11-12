@@ -39,7 +39,7 @@ jobs:
           groups: testers
           file: app/build/outputs/apk/pro/release/app-pro-release-unsigned-signed.apk
       - name: Generate Release FREE APK
-          run: ./gradlew assembleProRelease
+        run: ./gradlew assembleFreeRelease
       - name: Sign FREE APK
         uses: r0adkll/sign-android-release@v1
         id: sign_free_app
