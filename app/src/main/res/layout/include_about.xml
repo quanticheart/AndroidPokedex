@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="@color/colorBgButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/viewContent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="250dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/default_margin"
+                android:contentDescription="@string/fiap_logo"
+                android:scaleType="fitXY"
+                app:layout_constraintDimensionRatio="2:1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/banner" />
+
+            <TextView
+                android:id="@+id/devs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="?android:textColorPrimary"
+                app:layout_constraintLeft_toLeftOf="@+id/viewContent"
+                app:layout_constraintRight_toRightOf="@+id/viewContent"
+                app:layout_constraintTop_toBottomOf="@+id/img"
+                tools:text="Aluno RM" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_margin"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="?android:textColorPrimary"
+                app:layout_constraintLeft_toLeftOf="@+id/viewContent"
+                app:layout_constraintRight_toRightOf="@+id/viewContent"
+                app:layout_constraintTop_toBottomOf="@+id/devs"
+                tools:text="bla bla bla" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

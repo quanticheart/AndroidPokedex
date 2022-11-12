@@ -45,5 +45,7 @@
     <string name="label_collection">Coleção</string>
     <string name="msg_add_cards">Adicione cards a coleção</string>
     <string name="label_share">Compartilhar</string>
+    <string name="banner">banner</string>
+    <string name="fiap_logo">fiap logo</string>
 
 </resources>

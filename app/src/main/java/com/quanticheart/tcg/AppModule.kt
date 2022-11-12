@@ -1,5 +1,6 @@
 package com.quanticheart.tcg
 
+import com.quanticheart.tcg.presentation.about.AboutViewModel
 import com.quanticheart.tcg.presentation.details.CardDetailsViewModel
 import com.quanticheart.tcg.presentation.login.login.LoginViewModel
 import com.quanticheart.tcg.presentation.login.signup.SignUpViewModel
@@ -17,6 +18,7 @@ val presentationModules = module {
 
     viewModel { DashboardViewModel(get(), get()) }
     viewModel { UserCardsViewModel(get()) }
+    viewModel { AboutViewModel(get()) }
     viewModel { ListPokemonsViewModel(getFirstGenerationPokemonsTcgUseCase = get()) }
     viewModel {
         CardDetailsViewModel(

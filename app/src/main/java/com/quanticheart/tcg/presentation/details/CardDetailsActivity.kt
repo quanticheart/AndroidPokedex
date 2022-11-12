@@ -1,8 +1,8 @@
 package com.quanticheart.tcg.presentation.details
 
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.quanticheart.core.base.activity.BaseActivity
 import com.quanticheart.core.dialog.msgDialog
 import com.quanticheart.core.extentions.*
@@ -61,6 +61,7 @@ class CardDetailsActivity :
 
                         speak(it.data.description)
                         binding.flipper.showLayout()
+                        FirebaseAnalytics.getInstance(baseContext).logEvent(it.data.name, null)
                     }
                     showMenu(true)
                 }
@@ -100,7 +101,7 @@ class CardDetailsActivity :
 
     private fun share() {
         viewModel.pokemon.let {
-            shareText(it.name)
+            sharePokemon(it.name)
         }
     }
 
@@ -121,7 +122,7 @@ class CardDetailsActivity :
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menu?.clear()
         this.menu = menu
-        MenuInflater(this).inflate(R.menu.details_menu, menu)
+        menuInflater.inflate(R.menu.details_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 

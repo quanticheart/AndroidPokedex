@@ -1,8 +1,11 @@
 package com.quanticheart.tcg.presentation.main.dashboard
 
+import android.view.View
 import com.quanticheart.core.base.fragment.BaseFragment
+import com.quanticheart.core.extentions.openLink
 import com.quanticheart.core.extentions.toast
 import com.quanticheart.domain.model.ViewState
+import com.quanticheart.tcg.BuildConfig
 import com.quanticheart.tcg.databinding.FragmentDashboardBinding
 import com.quanticheart.tcg.goAbout
 import com.quanticheart.tcg.goLogin
@@ -20,6 +23,14 @@ class DashboardFragment :
 
         btnExit.setOnClickListener {
             viewModel.logout()
+        }
+
+        binding.banner.setOnClickListener {
+            activity?.openLink("https://www.fiap.com.br/")
+        }
+
+        if (BuildConfig.FLAVOR == "pro") {
+            binding.banner.visibility = View.GONE
         }
     }
 

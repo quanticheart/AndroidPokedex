@@ -2,6 +2,7 @@ package com.quanticheart.repository.remoteFeatures
 
 import com.google.gson.Gson
 import com.quanticheart.domain.model.remote.DashboardMenu
+import com.quanticheart.domain.model.remote.TcgRemote
 import com.quanticheart.domain.repository.AppRepository
 
 class AppRepositoryImpl : AppRepository {
@@ -19,5 +20,15 @@ class AppRepositoryImpl : AppRepository {
             Result.failure(Exception("Não foi possível encontrar o menu"))
         else
             Result.success(dashboardMenu)
+    }
+
+    override suspend fun getTcg(): Result<TcgRemote> {
+        val tcg =
+            Gson().fromRemoteConfig(RemoteConfigKeys.TCG, TcgRemote::class.java)
+
+        return if (tcg == null)
+            Result.failure(Exception("Não foi possível encontrar o menu"))
+        else
+            Result.success(tcg)
     }
 }

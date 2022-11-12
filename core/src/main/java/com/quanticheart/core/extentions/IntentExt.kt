@@ -2,6 +2,7 @@ package com.quanticheart.core.extentions
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 
 inline fun <reified T> Activity.startActivity(bundle: Bundle? = null) {
@@ -12,7 +13,7 @@ inline fun <reified T> Activity.startActivity(bundle: Bundle? = null) {
     startActivity(intent)
 }
 
-fun Activity.shareText(cardName: String) {
+fun Activity.sharePokemon(cardName: String) {
     val intent = Intent(Intent.ACTION_SEND).apply {
         type = "text/plain"
         putExtra(Intent.EXTRA_SUBJECT, "Subject Here")
@@ -23,3 +24,5 @@ fun Activity.shareText(cardName: String) {
     }
     startActivity(Intent.createChooser(intent, "Card $cardName"))
 }
+
+fun Activity.openLink(url: String) = startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))

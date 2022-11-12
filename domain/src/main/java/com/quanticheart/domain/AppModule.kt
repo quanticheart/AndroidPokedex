@@ -3,6 +3,7 @@ package com.quanticheart.domain
 import com.quanticheart.domain.usecase.pokemon.*
 import com.quanticheart.domain.usecase.remote.GetDashboardMenuUseCase
 import com.quanticheart.domain.usecase.remote.GetMinAppVersionUseCase
+import com.quanticheart.domain.usecase.remote.GetTcgRemoteUseCase
 import com.quanticheart.domain.usecase.user.*
 import org.koin.dsl.module
 
@@ -14,6 +15,7 @@ val domainModules = module {
     factory { GetCardCollectionUseCase(repository = get()) }
     factory { GetCardUseCase(repository = get()) }
 
+    factory { GetTcgRemoteUseCase(get()) }
     factory { GetDashboardMenuUseCase(get()) }
     factory { GetSessionUseCase(get()) }
     factory { LoginUseCase(get()) }
