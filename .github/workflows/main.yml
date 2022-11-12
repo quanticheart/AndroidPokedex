@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Generate Release PRO APK
         run: ./gradlew assembleProRelease
       - name: Sign PRO APK
@@ -38,6 +39,7 @@ jobs:
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers
           file: app/build/outputs/apk/pro/release/app-pro-release-unsigned-signed.apk
+
       - name: Generate Release FREE APK
         run: ./gradlew assembleFreeRelease
       - name: Sign FREE APK
@@ -60,10 +62,11 @@ jobs:
       - name: Upload artifact FREE to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
-          appId: ${{secrets.FIREBASE_APP_ID}}
+          appId: ${{secrets.FIREBASE_FREE_APP_ID}}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers
           file: app/build/outputs/apk/free/release/app-free-release-unsigned-signed.apk
+
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
