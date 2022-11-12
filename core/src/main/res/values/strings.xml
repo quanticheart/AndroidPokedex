@@ -2,4 +2,6 @@
     <string name="label_retry">Tentar novamente</string>
     <string name="label_error">error</string>
     <string name="label_loading">Carregando os dados</string>
+    <string name="label_yes">sim</string>
+    <string name="label_no">não</string>
 </resources>

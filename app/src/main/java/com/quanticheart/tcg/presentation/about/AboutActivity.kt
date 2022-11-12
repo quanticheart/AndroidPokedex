@@ -16,7 +16,7 @@ class AboutActivity :
     private val picasso: Picasso by inject()
 
     override fun view(binding: ActivityAboutBinding): Unit = binding.layout.run {
-        navigationBar.setBackToolbar(getString(R.string.label_about))
+        navigationBar.setBackToolbar()
     }
 
     override fun viewModel(viewModel: AboutViewModel): Unit = viewModel.run {

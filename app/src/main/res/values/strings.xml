@@ -49,5 +49,6 @@
     <string name="fiap_logo">fiap logo</string>
     <string name="label_recover">Recuperar</string>
     <string name="label_signin">Cadastrar</string>
+    <string name="msg_logout">Deseja sair?</string>
 
 </resources>

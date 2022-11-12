@@ -2,10 +2,13 @@ package com.quanticheart.tcg.presentation.main.dashboard
 
 import android.view.View
 import com.quanticheart.core.base.fragment.BaseFragment
+import com.quanticheart.core.dialog.actionDialog
+import com.quanticheart.core.dialog.msgDialog
 import com.quanticheart.core.extentions.openLink
 import com.quanticheart.core.extentions.toast
 import com.quanticheart.domain.model.ViewState
 import com.quanticheart.tcg.BuildConfig
+import com.quanticheart.tcg.R
 import com.quanticheart.tcg.databinding.FragmentDashboardBinding
 import com.quanticheart.tcg.goAbout
 import com.quanticheart.tcg.goLogin
@@ -22,7 +25,9 @@ class DashboardFragment :
         }
 
         btnExit.setOnClickListener {
-            viewModel.logout()
+            activity?.actionDialog(getString(R.string.msg_logout)) {
+                viewModel.logout()
+            }
         }
 
         binding.banner.setOnClickListener {
