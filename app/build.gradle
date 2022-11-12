@@ -22,14 +22,24 @@ def getCurrentGitBranch() {
     return gitBranch
 }
 
-task publishRelease(type: Delete, group: "publish") {
-    dependsOn("assembleRelease")
-    dependsOn("appDistributionUploadRelease")
+task publishDebugPro(type: Delete, group: "publish") {
+    dependsOn("assembleDebug")
+    dependsOn("appDistributionUploadProDebug")
 }
 
-task publishDebug(type: Delete, group: "publish") {
+task publishDebugFree(type: Delete, group: "publish") {
     dependsOn("assembleDebug")
-    dependsOn("appDistributionUploadDebug")
+    dependsOn("appDistributionUploadFreeDebug")
+}
+
+task publishReleasePro(type: Delete, group: "publish") {
+    dependsOn("assemblePro")
+    dependsOn("appDistributionUploadProRelease")
+}
+
+task publishReleaseFree(type: Delete, group: "publish") {
+    dependsOn("assembleFree")
+    dependsOn("appDistributionUploadFreeRelease")
 }
 
 def keystorePropertiesFile = rootProject.file("app/keystore.properties")
@@ -120,9 +130,23 @@ android {
     productFlavors {
         free {
             dimension "version"
+            applicationIdSuffix ".free"
+            versionNameSuffix "-free"
+            firebaseAppDistribution {
+                appId = "1:688464559028:android:4b3d90cefc08dd2d07d0e1"
+                releaseNotes = getCurrentGitBranch()
+                groups = "testers"
+            }
         }
         pro {
             dimension "version"
+            applicationIdSuffix ".pro"
+            versionNameSuffix "-pro"
+            firebaseAppDistribution {
+                appId = "1:688464559028:android:c5238d4271b8027a07d0e1"
+                releaseNotes = getCurrentGitBranch()
+                groups = "testers"
+            }
         }
     }
 

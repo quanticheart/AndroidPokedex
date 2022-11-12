@@ -145,6 +145,182 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688464559028:android:4b3d90cefc08dd2d07d0e1",
+        "android_client_info": {
+          "package_name": "com.quanticheart.tcg.free"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688464559028-t7ubkue2jvllhtvg0be0ut165vdci0nn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.quanticheart.tcg.free",
+            "certificate_hash": "50371ba1fe07f5d9a183958c37b5cd8eef5c58be"
+          }
+        },
+        {
+          "client_id": "688464559028-1tst8k0eqe6r9a4vttelfhelm2klmg9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChGszaKFg_Vgj5Ewive4L380OPRBTGGV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688464559028-1tst8k0eqe6r9a4vttelfhelm2klmg9v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "688464559028-2fbedookpfif6a2vgclc4e59mnhps59o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterGet"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688464559028:android:f2377a1bdf6991c107d0e1",
+        "android_client_info": {
+          "package_name": "com.quanticheart.tcg.free.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688464559028-i3oosimac5dbs3le829dvbgf2k3lp8fc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.quanticheart.tcg.free.debug",
+            "certificate_hash": "50371ba1fe07f5d9a183958c37b5cd8eef5c58be"
+          }
+        },
+        {
+          "client_id": "688464559028-1tst8k0eqe6r9a4vttelfhelm2klmg9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChGszaKFg_Vgj5Ewive4L380OPRBTGGV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688464559028-1tst8k0eqe6r9a4vttelfhelm2klmg9v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "688464559028-2fbedookpfif6a2vgclc4e59mnhps59o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterGet"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688464559028:android:c5238d4271b8027a07d0e1",
+        "android_client_info": {
+          "package_name": "com.quanticheart.tcg.pro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688464559028-gik79abstnscvhj3ecfr7b3l8q74ftd4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.quanticheart.tcg.pro",
+            "certificate_hash": "50371ba1fe07f5d9a183958c37b5cd8eef5c58be"
+          }
+        },
+        {
+          "client_id": "688464559028-1tst8k0eqe6r9a4vttelfhelm2klmg9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChGszaKFg_Vgj5Ewive4L380OPRBTGGV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688464559028-1tst8k0eqe6r9a4vttelfhelm2klmg9v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "688464559028-2fbedookpfif6a2vgclc4e59mnhps59o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterGet"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688464559028:android:c578f737bc1c875e07d0e1",
+        "android_client_info": {
+          "package_name": "com.quanticheart.tcg.pro.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688464559028-lrd18vs5rkmpk3aq2icsorreuvm3hgju.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.quanticheart.tcg.pro.debug",
+            "certificate_hash": "50371ba1fe07f5d9a183958c37b5cd8eef5c58be"
+          }
+        },
+        {
+          "client_id": "688464559028-1tst8k0eqe6r9a4vttelfhelm2klmg9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChGszaKFg_Vgj5Ewive4L380OPRBTGGV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688464559028-1tst8k0eqe6r9a4vttelfhelm2klmg9v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "688464559028-2fbedookpfif6a2vgclc4e59mnhps59o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterGet"
+              }
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
