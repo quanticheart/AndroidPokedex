@@ -38,6 +38,34 @@ jobs:
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers
           file: app/build/outputs/apk/pro/release/app-pro-release-unsigned-signed.apk
+
+      - name: Generate Release FREE APK
+          run: ./gradlew assembleProRelease
+      - name: Sign FREE APK
+        uses: r0adkll/sign-android-release@v1
+        id: sign_app
+        with:
+          releaseDirectory: app/build/outputs/apk/free/release
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+      - uses: actions/upload-artifact@master
+        with:
+          name: release.apk
+          path: ${{steps.sign_app.outputs.signedReleaseFile}}
+      - uses: actions/upload-artifact@master
+        with:
+          name: mapping.txt
+          path: app/build/outputs/mapping/freeRelease/mapping.txt
+      - name: Upload artifact FREE to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{secrets.FIREBASE_APP_ID}}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          groups: testers
+          file: app/build/outputs/apk/free/release/app-free-release-unsigned-signed.apk
+
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
