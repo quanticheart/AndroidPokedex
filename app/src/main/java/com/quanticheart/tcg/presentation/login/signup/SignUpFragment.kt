@@ -39,7 +39,10 @@ class SignUpFragment :
                 cbTermsSignUp.playAnimation()
                 checkBoxDone = true
             }
+            btCreateAccount.isEnabled = checkBoxDone
         }
+
+        btLoginSignUp.setOnClickListener { onBackPressed() }
     }
 
     override fun viewModel(viewModel: SignUpViewModel): Unit = viewModel.run {

@@ -104,6 +104,7 @@
                 style="@style/custom_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:text="@string/label_signin"
                 app:layout_constraintBottom_toTopOf="@+id/btClose"
                 app:layout_constraintLeft_toLeftOf="parent"
