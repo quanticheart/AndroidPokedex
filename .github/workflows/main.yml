@@ -42,7 +42,7 @@ jobs:
           run: ./gradlew assembleProRelease
       - name: Sign FREE APK
         uses: r0adkll/sign-android-release@v1
-        id: sign_app
+        id: sign_free_app
         with:
           releaseDirectory: app/build/outputs/apk/free/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
