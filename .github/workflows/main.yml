@@ -37,7 +37,19 @@ jobs:
           appId: ${{secrets.FIREBASE_APP_ID}}
           serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
           groups: testers
-          file: app/build/outputs/apk/pro/release/release.apk
+          file: app/build/outputs/apk/pro/release/pro-release-unsigned-signed.apk
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+            Repository: ${{ github.repository }}
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            Status: ${{ job.status }}
+            Steps: ${{ toJson(steps) }}
 #  deploy-play-store:
 #    needs: [ build ]
 #    runs-on: ubuntu-latest
