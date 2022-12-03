@@ -20,7 +20,7 @@ class MsgDialog(
                 callback?.let { it() }
                 dialog.dismiss()
             }.setCancelable(false)
-
+        this.isCancelable = false
         return builder.create()
     }
 }
